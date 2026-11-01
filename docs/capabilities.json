@@ -1,0 +1,1762 @@
+{
+  "count": 439,
+  "counting": "Table operations are counted per tool. Puzzle editions and world skins are separate.",
+  "capabilities": [
+    {
+      "surface": "library",
+      "capability": "6,000 seeded puzzles"
+    },
+    {
+      "surface": "library",
+      "capability": "Three puzzle engines"
+    },
+    {
+      "surface": "library",
+      "capability": "Four difficulty levels"
+    },
+    {
+      "surface": "library",
+      "capability": "Search by title or number"
+    },
+    {
+      "surface": "library",
+      "capability": "Filter by game type"
+    },
+    {
+      "surface": "library",
+      "capability": "Filter by difficulty"
+    },
+    {
+      "surface": "library",
+      "capability": "Filter community briefs"
+    },
+    {
+      "surface": "library",
+      "capability": "Filter saved quests"
+    },
+    {
+      "surface": "library",
+      "capability": "Sort by difficulty"
+    },
+    {
+      "surface": "library",
+      "capability": "Sort by edition number"
+    },
+    {
+      "surface": "library",
+      "capability": "Sort by recent play"
+    },
+    {
+      "surface": "library",
+      "capability": "Card and list layouts"
+    },
+    {
+      "surface": "library",
+      "capability": "Paginated quest library"
+    },
+    {
+      "surface": "library",
+      "capability": "Random quest choice"
+    },
+    {
+      "surface": "library",
+      "capability": "Save favourite quests"
+    },
+    {
+      "surface": "home",
+      "capability": "Daily rotating starter quests"
+    },
+    {
+      "surface": "settings",
+      "capability": "Six story worlds"
+    },
+    {
+      "surface": "settings",
+      "capability": "Five colour themes"
+    },
+    {
+      "surface": "settings",
+      "capability": "Fifteen personal avatars"
+    },
+    {
+      "surface": "settings",
+      "capability": "Personal notebook name"
+    },
+    {
+      "surface": "settings",
+      "capability": "Larger type"
+    },
+    {
+      "surface": "settings",
+      "capability": "Wider text spacing"
+    },
+    {
+      "surface": "settings",
+      "capability": "Reduced animation"
+    },
+    {
+      "surface": "settings",
+      "capability": "Optional move sounds"
+    },
+    {
+      "surface": "settings",
+      "capability": "Hide the timer"
+    },
+    {
+      "surface": "settings",
+      "capability": "Live-check preference"
+    },
+    {
+      "surface": "settings",
+      "capability": "Gentle break reminders"
+    },
+    {
+      "surface": "settings",
+      "capability": "Reset preferences"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Resume saved plans"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Solution milestones"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Time spent thinking"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Personal journal"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Delete journal entries"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Export notebook backup"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Restore notebook backup"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Merge cloud notebook"
+    },
+    {
+      "surface": "dashboard",
+      "capability": "Private review decisions"
+    },
+    {
+      "surface": "organise",
+      "capability": "Custom scenario editor"
+    },
+    {
+      "surface": "organise",
+      "capability": "Edit local scenarios"
+    },
+    {
+      "surface": "organise",
+      "capability": "Export local scenarios"
+    },
+    {
+      "surface": "organise",
+      "capability": "Remove local scenarios"
+    },
+    {
+      "surface": "organise",
+      "capability": "Publish community briefs"
+    },
+    {
+      "surface": "organise",
+      "capability": "Pause community briefs"
+    },
+    {
+      "surface": "organise",
+      "capability": "Edit brief details"
+    },
+    {
+      "surface": "organise",
+      "capability": "Private review workspace"
+    },
+    {
+      "surface": "organise",
+      "capability": "Approve a plan"
+    },
+    {
+      "surface": "organise",
+      "capability": "Request revisions"
+    },
+    {
+      "surface": "organise",
+      "capability": "Decline a plan"
+    },
+    {
+      "surface": "organise",
+      "capability": "Record plan use"
+    },
+    {
+      "surface": "organise",
+      "capability": "Download submitted plans"
+    },
+    {
+      "surface": "about",
+      "capability": "Vector logo download"
+    },
+    {
+      "surface": "about",
+      "capability": "App icon download"
+    },
+    {
+      "surface": "privacy",
+      "capability": "Export personal records"
+    },
+    {
+      "surface": "privacy",
+      "capability": "Delete synced notebook"
+    },
+    {
+      "surface": "privacy",
+      "capability": "Clear device notebook"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · add an entry"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · edit entry values"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · duplicate an entry"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · remove an entry"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · filter entries"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · sort by any input"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · reverse the sort"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · load an example"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · calculate row results"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · calculate totals"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · export CSV"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · export JSON"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · import JSON"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · print the table"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · save across visits"
+    },
+    {
+      "surface": "kit/food",
+      "capability": "Food portions · clear the table"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · add an entry"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · edit entry values"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · duplicate an entry"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · remove an entry"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · filter entries"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · sort by any input"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · reverse the sort"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · load an example"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · calculate row results"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · calculate totals"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · export CSV"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · export JSON"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · import JSON"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · print the table"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · save across visits"
+    },
+    {
+      "surface": "kit/hours",
+      "capability": "Volunteer hours · clear the table"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · add an entry"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · edit entry values"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · duplicate an entry"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · remove an entry"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · filter entries"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · sort by any input"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · reverse the sort"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · load an example"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · calculate row results"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · calculate totals"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · export CSV"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · export JSON"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · import JSON"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · print the table"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · save across visits"
+    },
+    {
+      "surface": "kit/budget",
+      "capability": "Event budget · clear the table"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · add an entry"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · edit entry values"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · duplicate an entry"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · remove an entry"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · filter entries"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · sort by any input"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · reverse the sort"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · load an example"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · calculate row results"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · calculate totals"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · export CSV"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · export JSON"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · import JSON"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · print the table"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · save across visits"
+    },
+    {
+      "surface": "kit/fuel",
+      "capability": "Trip costs · clear the table"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · add an entry"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · edit entry values"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · duplicate an entry"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · remove an entry"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · filter entries"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · sort by any input"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · reverse the sort"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · load an example"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · calculate row results"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · calculate totals"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · export CSV"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · export JSON"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · import JSON"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · print the table"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · save across visits"
+    },
+    {
+      "surface": "kit/space",
+      "capability": "Storage volume · clear the table"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · add an entry"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · edit entry values"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · duplicate an entry"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · remove an entry"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · filter entries"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · sort by any input"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · reverse the sort"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · load an example"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · calculate row results"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · calculate totals"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · export CSV"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · export JSON"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · import JSON"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · print the table"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · save across visits"
+    },
+    {
+      "surface": "kit/donations",
+      "capability": "Donation ledger · clear the table"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · add an entry"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · edit entry values"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · duplicate an entry"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · remove an entry"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · filter entries"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · sort by any input"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · reverse the sort"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · load an example"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · calculate row results"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · calculate totals"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · export CSV"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · export JSON"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · import JSON"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · print the table"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · save across visits"
+    },
+    {
+      "surface": "kit/priority",
+      "capability": "Priority matrix · clear the table"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · add an entry"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · edit entry values"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · duplicate an entry"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · remove an entry"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · filter entries"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · sort by any input"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · reverse the sort"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · load an example"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · calculate row results"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · calculate totals"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · export CSV"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · export JSON"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · import JSON"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · print the table"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · save across visits"
+    },
+    {
+      "surface": "kit/risk",
+      "capability": "Risk register · clear the table"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · add an entry"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · edit entry values"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · duplicate an entry"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · remove an entry"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · filter entries"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · sort by any input"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · reverse the sort"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · load an example"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · calculate row results"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · calculate totals"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · export CSV"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · export JSON"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · import JSON"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · print the table"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · save across visits"
+    },
+    {
+      "surface": "kit/run",
+      "capability": "Run of show · clear the table"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · add an entry"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · edit entry values"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · duplicate an entry"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · remove an entry"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · filter entries"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · sort by any input"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · reverse the sort"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · load an example"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · calculate row results"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · calculate totals"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · export CSV"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · export JSON"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · import JSON"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · print the table"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · save across visits"
+    },
+    {
+      "surface": "kit/capacity",
+      "capability": "Venue capacity · clear the table"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · add an entry"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · edit entry values"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · duplicate an entry"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · remove an entry"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · filter entries"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · sort by any input"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · reverse the sort"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · load an example"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · calculate row results"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · calculate totals"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · export CSV"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · export JSON"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · import JSON"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · print the table"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · save across visits"
+    },
+    {
+      "surface": "kit/kits",
+      "capability": "Kit costs · clear the table"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · add an entry"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · edit entry values"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · duplicate an entry"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · remove an entry"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · filter entries"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · sort by any input"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · reverse the sort"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · load an example"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · calculate row results"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · calculate totals"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · export CSV"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · export JSON"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · import JSON"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · print the table"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · save across visits"
+    },
+    {
+      "surface": "kit/fair",
+      "capability": "Fair share · clear the table"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · add an entry"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · edit entry values"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · duplicate an entry"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · remove an entry"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · filter entries"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · sort by any input"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · reverse the sort"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · load an example"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · calculate row results"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · calculate totals"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · export CSV"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · export JSON"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · import JSON"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · print the table"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · save across visits"
+    },
+    {
+      "surface": "kit/water",
+      "capability": "Water planning · clear the table"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · add an entry"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · edit entry values"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · duplicate an entry"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · remove an entry"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · filter entries"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · sort by any input"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · reverse the sort"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · load an example"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · calculate row results"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · calculate totals"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · export CSV"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · export JSON"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · import JSON"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · print the table"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · save across visits"
+    },
+    {
+      "surface": "kit/meals",
+      "capability": "Meal budget · clear the table"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · add an entry"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · edit entry values"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · duplicate an entry"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · remove an entry"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · filter entries"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · sort by any input"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · reverse the sort"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · load an example"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · calculate row results"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · calculate totals"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · export CSV"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · export JSON"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · import JSON"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · print the table"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · save across visits"
+    },
+    {
+      "surface": "kit/queue",
+      "capability": "Queue estimate · clear the table"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · add an entry"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · edit entry values"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · duplicate an entry"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · remove an entry"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · filter entries"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · sort by any input"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · reverse the sort"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · load an example"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · calculate row results"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · calculate totals"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · export CSV"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · export JSON"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · import JSON"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · print the table"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · save across visits"
+    },
+    {
+      "surface": "kit/tutor",
+      "capability": "Tutor ratios · clear the table"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · add an entry"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · edit entry values"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · duplicate an entry"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · remove an entry"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · filter entries"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · sort by any input"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · reverse the sort"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · load an example"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · calculate row results"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · calculate totals"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · export CSV"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · export JSON"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · import JSON"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · print the table"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · save across visits"
+    },
+    {
+      "surface": "kit/expiry",
+      "capability": "Stock rotation · clear the table"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · add an entry"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · edit entry values"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · duplicate an entry"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · remove an entry"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · filter entries"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · sort by any input"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · reverse the sort"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · load an example"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · calculate row results"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · calculate totals"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · export CSV"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · export JSON"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · import JSON"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · print the table"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · save across visits"
+    },
+    {
+      "surface": "kit/weight",
+      "capability": "Load weights · clear the table"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · add an entry"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · edit entry values"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · duplicate an entry"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · remove an entry"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · filter entries"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · sort by any input"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · reverse the sort"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · load an example"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · calculate row results"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · calculate totals"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · export CSV"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · export JSON"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · import JSON"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · print the table"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · save across visits"
+    },
+    {
+      "surface": "kit/access",
+      "capability": "Access checklist · clear the table"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · add an entry"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · edit entry values"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · duplicate an entry"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · remove an entry"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · filter entries"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · sort by any input"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · reverse the sort"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · load an example"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · calculate row results"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · calculate totals"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · export CSV"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · export JSON"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · import JSON"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · print the table"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · save across visits"
+    },
+    {
+      "surface": "kit/handover",
+      "capability": "Handover notes · clear the table"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · add an entry"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · edit entry values"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · duplicate an entry"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · remove an entry"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · filter entries"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · sort by any input"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · reverse the sort"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · load an example"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · calculate row results"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · calculate totals"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · export CSV"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · export JSON"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · import JSON"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · print the table"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · save across visits"
+    },
+    {
+      "surface": "kit/funds",
+      "capability": "Funding runway · clear the table"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · add an entry"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · edit entry values"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · duplicate an entry"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · remove an entry"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · filter entries"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · sort by any input"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · reverse the sort"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · load an example"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · calculate row results"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · calculate totals"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · export CSV"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · export JSON"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · import JSON"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · print the table"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · save across visits"
+    },
+    {
+      "surface": "kit/travel",
+      "capability": "Travel time · clear the table"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · add an entry"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · edit entry values"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · duplicate an entry"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · remove an entry"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · filter entries"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · sort by any input"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · reverse the sort"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · load an example"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · calculate row results"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · calculate totals"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · export CSV"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · export JSON"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · import JSON"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · print the table"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · save across visits"
+    },
+    {
+      "surface": "kit/batches",
+      "capability": "Packing batches · clear the table"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · add an entry"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · edit entry values"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · duplicate an entry"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · remove an entry"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · filter entries"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · sort by any input"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · reverse the sort"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · load an example"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · calculate row results"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · calculate totals"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · export CSV"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · export JSON"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · import JSON"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · print the table"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · save across visits"
+    },
+    {
+      "surface": "kit/coverage",
+      "capability": "Cover reserve · clear the table"
+    }
+  ]
+}
