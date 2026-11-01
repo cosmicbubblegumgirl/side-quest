@@ -1,0 +1,2 @@
+docs/** linguist-documentation=false
+tests/database-cases.sql linguist-generated=true
