@@ -1,4 +1,4 @@
-import("./app.js?v=4").catch((error) => {
+import("./app.js?v=5").catch((error) => {
   const app = document.querySelector("#app");
   app.textContent = "";
   const message = document.createElement("p");

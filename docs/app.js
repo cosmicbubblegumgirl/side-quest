@@ -2339,7 +2339,6 @@ document.addEventListener("change", async (event) => {
           ? Math.max(0, Math.min(1e8, +el.value || 0))
           : el.value.slice(0, 200);
       await persist("kits", kits);
-      render();
     }
     if (["editor-type", "editor-level"].includes(el.id)) {
       const title = $("#editor-title").value;
