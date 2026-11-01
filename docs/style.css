@@ -10,3 +10,5 @@
 .world-motif{position:absolute;right:19px;bottom:5px;font-size:65px;opacity:.16;transform:rotate(16deg);pointer-events:none}.card-art[data-world=woodland]{background-image:radial-gradient(#72905522 2px,transparent 2px);background-size:19px 19px}.card-art[data-world=moon],.card-art[data-world=academy]{background-image:radial-gradient(#fff9 1.2px,transparent 1.2px);background-size:17px 21px}.card-art[data-world=sky]{background-image:linear-gradient(155deg,#ffffff60,transparent)}.card-art[data-world=clockwork]{background-image:repeating-linear-gradient(45deg,transparent,transparent 12px,#19292305 12px,#19292305 14px)}
 
 .micro>svg{width:15px;height:15px;flex-shrink:0}.art-piece>svg{width:22px;height:22px}.art-stamp strong{font-size:28px;line-height:1.1;margin:4px 0}.art-stamp{line-height:1.3;font-size:9px;letter-spacing:1.4px}.world-heading{line-height:1.5}
+
+html,body{overflow-x:clip}
