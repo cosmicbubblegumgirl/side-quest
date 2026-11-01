@@ -6,6 +6,10 @@ A community puzzle club by Simoné Govender, Quantum Cupcake Creations.
 
 [Play SIDE QUEST](https://cosmicbubblegumgirl.github.io/side-quest/)
 
+![SIDE QUEST desktop preview](docs/screenshots/desktop.jpg)
+
+[View the phone layout](docs/screenshots/mobile.jpg)
+
 ## The experience
 
 - 6,000 distinct, deterministic and solvable practice boards: 3 engines × 4 difficulties × 500 editions.
@@ -38,7 +42,7 @@ Supabase Postgres holds `sq_quests`, `sq_submissions`, `sq_reviews` and `sq_stat
 
 `database/schema.sql` records the initial database setup. `database/hardening.sql` records additional validation checks. Existing applications in the database use separate tables and are not altered. A shared authentication service means accounts from the same project can also sign in here.
 
-The publication workflow runs the checks, packages `docs/` and deploys it to GitHub Pages on every push to `main`. Deployments run one at a time. Hash navigation works under a repository subpath. The service worker scopes itself to this app and caches only same-origin app files. It never caches account API responses.
+GitHub Pages publishes the `main` branch’s `/docs` directory using its standard publisher. Run the local checks above before pushing changes. Hash navigation works under a repository subpath. The service worker scopes itself to this app and caches only same-origin app files. It never caches account API responses.
 
 ## Operational boundaries
 
