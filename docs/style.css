@@ -2232,3 +2232,700 @@ html,
 body {
   overflow-x: clip;
 }
+
+/* Explorer's atlas: cartography, ink and field journals. */
+body[data-theme="paper"] {
+  --paper: #eee9dd;
+  --panel: #fcf8ee;
+  --ink: #263a35;
+  --muted: #65726a;
+  --line: #cfcaba;
+  --lime: #e4ad68;
+  --accent: #e4ad68;
+  --lavender: #c5d0bb;
+  --peach: #e7c3a1;
+}
+.topbar {
+  height: 78px;
+  background: #182f30;
+  color: #f3e9d4;
+  border-bottom: 1px solid #425453;
+  padding: 0 4%;
+}
+.topbar .btn.outline {
+  border-color: #6f7d71;
+  color: #f3e9d4;
+  border-radius: 0;
+}
+.topbar .nav a {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+.topbar .mobile-nav {
+  background: #203b39;
+  color: #f3e9d4;
+}
+.brand img {
+  transform: none;
+}
+.wordmark {
+  letter-spacing: 0.5px;
+  font-size: 17px;
+}
+.btn,
+.badge,
+.chip {
+  border-radius: 2px;
+}
+h1,
+h2,
+.page-title,
+.game-top h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+.page-title {
+  letter-spacing: -2px;
+}
+.atlas {
+  background: #1d3939;
+  color: #f2e5c9;
+  position: relative;
+}
+.atlas-topline {
+  padding: 17px 4%;
+  display: flex;
+  justify-content: space-between;
+  font: 10px monospace;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #60726a55;
+}
+.atlas-stage {
+  position: relative;
+  max-width: 1520px;
+  margin: auto;
+  height: 605px;
+  overflow: hidden;
+}
+.atlas-art {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  object-fit: fill;
+}
+.atlas-intro {
+  position: absolute;
+  left: 4%;
+  top: 68px;
+  width: 39%;
+}
+.atlas-intro .eyebrow {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #ddbb85;
+}
+.atlas-intro h1 {
+  font-size: clamp(54px, 6.9vw, 104px);
+  line-height: 0.99;
+  letter-spacing: -5px;
+  margin: 22px 0 24px;
+}
+.atlas-intro p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #c8d2bf;
+}
+.atlas-cta {
+  background: #e4ad68;
+  color: #253e38;
+  padding: 14px 19px;
+  display: inline-flex;
+  gap: 42px;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 4px 4px 0 #0a2422;
+  transition: transform 0.2s;
+}
+.atlas-cta:hover {
+  transform: translateY(-3px);
+}
+.atlas-cta span {
+  font-size: 22px;
+}
+.atlas-how {
+  display: block;
+  background: none;
+  border: 0;
+  padding: 20px 0;
+  color: #c6cdb6;
+  font-size: 11px;
+  text-align: left;
+}
+.map-caption {
+  position: absolute;
+  right: 7%;
+  top: 35px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+.map-caption > div {
+  font: 20px Georgia;
+}
+.map-caption small {
+  display: block;
+  font: 10px monospace;
+  letter-spacing: 0.4px;
+  margin-top: 7px;
+  opacity: 0.75;
+}
+.map-caption > span {
+  font-size: 38px;
+  color: #dbb680;
+}
+.map-pin {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s;
+}
+.map-pin:hover {
+  transform: translateY(-6px);
+}
+.pin-0 {
+  left: 41%;
+  top: 45%;
+}
+.pin-1 {
+  left: 64%;
+  top: 59%;
+}
+.pin-2 {
+  left: 77%;
+  top: 43%;
+}
+.pin-marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #edb665;
+  color: #263a35;
+  display: grid;
+  place-items: center;
+  border: 2px solid #293f36;
+  box-shadow: 0 0 0 4px #e8d6a040;
+  font: 12px monospace;
+}
+.pin-label {
+  background: #f3e7cd;
+  color: #293b32;
+  padding: 9px 13px;
+  box-shadow: 3px 3px 0 #273c3570;
+  font: 16px Georgia;
+  min-width: 150px;
+  border: 1px solid #a89a78;
+}
+.pin-label b {
+  float: right;
+  margin-left: 15px;
+  font-weight: 400;
+}
+.pin-label small {
+  display: block;
+  font: 9px monospace;
+  margin-top: 5px;
+  color: #57634f;
+}
+.map-key {
+  position: absolute;
+  bottom: 27px;
+  right: 5%;
+  font: 9px monospace;
+  letter-spacing: 1px;
+  display: flex;
+  gap: 32px;
+  color: #c6c9ad;
+}
+.realm-bar {
+  border-top: 1px solid #a4b08c44;
+  display: flex;
+  padding: 0 4%;
+  background: #142f30;
+}
+.realm-title {
+  width: 195px;
+  flex-shrink: 0;
+  padding: 25px 0;
+}
+.realm-title > small {
+  font: 8px monospace;
+  letter-spacing: 1.5px;
+  color: #a9b5a0;
+}
+.realm-title strong {
+  display: block;
+  font: 19px Georgia;
+  margin-top: 7px;
+}
+.realm-choices {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  flex: 1;
+}
+.realm-choices button {
+  padding: 18px 12px;
+  background: transparent;
+  color: #b9c6b5;
+  border: 0;
+  border-left: 1px solid #82927833;
+  font: 10px monospace;
+  position: relative;
+  text-align: left;
+}
+.realm-choices button > span {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.realm-choices button small {
+  position: absolute;
+  right: 12px;
+  top: 16px;
+  font-size: 8px;
+  opacity: 0.6;
+}
+.realm-choices button.selected {
+  background: #d8c49b;
+  color: #243d36;
+  box-shadow: inset 0 4px #e9aa5b;
+}
+.realm-choices button:hover {
+  box-shadow: inset 0 4px #e9aa5b;
+}
+.atlas[data-realm="moon"] {
+  background: #252d45;
+}
+.atlas[data-realm="sky"] {
+  background: #365660;
+}
+.atlas[data-realm="woodland"] {
+  background: #233f30;
+}
+.atlas[data-realm="clockwork"] {
+  background: #473b31;
+}
+.atlas[data-realm="academy"] {
+  background: #39324c;
+}
+.atlas[data-realm="moon"] .atlas-art {
+  filter: hue-rotate(45deg) saturate(0.65);
+}
+.atlas[data-realm="sky"] .atlas-art {
+  filter: brightness(1.12);
+}
+.atlas[data-realm="clockwork"] .atlas-art {
+  filter: sepia(0.4);
+}
+.atlas[data-realm="academy"] .atlas-art {
+  filter: hue-rotate(55deg);
+}
+.expedition {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8%;
+  padding-top: 78px;
+  padding-bottom: 78px;
+}
+.expedition-title h2 {
+  font-size: 46px;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 20px 0;
+}
+.expedition-title p {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 250px;
+}
+.expedition-title button {
+  background: none;
+  border: 0;
+  padding: 15px 0;
+  font-size: 12px;
+}
+.quest-entry {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding: 22px 0;
+  gap: 20px;
+  position: relative;
+}
+.quest-entry:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.entry-number {
+  font: 12px monospace;
+  color: #957c56;
+  align-self: start;
+  margin-top: 4px;
+}
+.quest-entry small {
+  font: 9px monospace;
+  letter-spacing: 1.3px;
+  color: var(--muted);
+}
+.quest-entry h3 {
+  font: 26px Georgia;
+  margin: 7px 0;
+}
+.quest-entry p {
+  font-size: 12px;
+  margin: 0;
+  color: var(--muted);
+}
+.entry-sketch {
+  margin-left: auto;
+  width: 135px;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+.entry-sketch svg {
+  width: 100%;
+  display: block;
+}
+.entry-arrow {
+  font-size: 25px;
+}
+.quest-entry:hover .entry-sketch {
+  transform: rotate(-5deg);
+}
+.dispatch {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 110px 1fr 270px;
+  gap: 45px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  align-items: start;
+}
+.dispatch-seal {
+  border: 2px solid #a06848;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  padding-top: 10px;
+  color: #a06848;
+  font: 40px Georgia;
+  transform: rotate(-12deg);
+  outline: 1px solid #a06848;
+  outline-offset: -6px;
+}
+.dispatch-seal span {
+  font: 8px monospace;
+  display: block;
+  letter-spacing: 1.5px;
+}
+.dispatch h2 {
+  font-size: 33px;
+  line-height: 1.1;
+  margin: 13px 0;
+}
+.dispatch p {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 430px;
+}
+.dispatch .text-link {
+  font-size: 12px;
+}
+.dispatch aside > span {
+  font: 9px monospace;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.dispatch aside a {
+  display: block;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+  color: var(--muted);
+}
+.dispatch aside strong {
+  display: block;
+  font: 18px Georgia;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.atlas-footnote {
+  font: 10px/1.7 monospace;
+  color: var(--muted);
+  padding-top: 20px;
+  padding-bottom: 35px;
+  border-top: 1px solid var(--line);
+}
+.mission-card {
+  border-radius: 0;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.card-art {
+  border-radius: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 29px,
+      #405e4710 30px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 29px,
+      #405e4710 30px
+    );
+}
+.card-body h3 {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 25px;
+}
+.game-board,
+.panel,
+.stat-card,
+.empty {
+  border-radius: 2px;
+}
+.board-banner {
+  background: #c5d0bb;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #a1ad98;
+}
+.game-top h1 {
+  font-size: 40px;
+}
+.footer {
+  background: #182f30;
+  color: #d6dbc8;
+  border: 0;
+}
+.footer a {
+  color: inherit;
+}
+@media (max-width: 1000px) {
+  .realm-title {
+    width: 145px;
+  }
+  .realm-choices button {
+    padding: 15px 8px;
+    font-size: 9px;
+  }
+  .atlas-stage {
+    height: 560px;
+  }
+  .atlas-intro {
+    top: 75px;
+  }
+  .atlas-intro h1 {
+    font-size: 72px;
+  }
+  .pin-label {
+    min-width: 125px;
+    font-size: 14px;
+    padding: 8px;
+  }
+  .dispatch {
+    grid-template-columns: 80px 1fr 230px;
+    gap: 25px;
+  }
+  .dispatch-seal {
+    width: 75px;
+    height: 75px;
+    font-size: 28px;
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    height: 70px;
+  }
+  .atlas-topline {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .atlas-topline > span:last-child {
+    display: none;
+  }
+  .atlas-stage {
+    height: 790px;
+  }
+  .atlas-intro {
+    top: 34px;
+    width: 92%;
+  }
+  .atlas-intro h1 {
+    font-size: 67px;
+    letter-spacing: -3px;
+    margin: 15px 0;
+  }
+  .atlas-intro h1 br {
+    display: none;
+  }
+  .atlas-intro p {
+    font-size: 13px;
+  }
+  .atlas-cta {
+    margin-top: 8px;
+    padding: 10px 15px;
+  }
+  .atlas-how {
+    padding: 15px 0;
+  }
+  .atlas-art {
+    width: 920px;
+    height: 460px;
+    max-width: none;
+    top: 310px;
+    left: calc(50% - 605px);
+  }
+  .map-caption {
+    top: 325px;
+    left: 5%;
+    right: auto;
+  }
+  .map-caption > div {
+    font-size: 17px;
+  }
+  .map-caption small {
+    max-width: 240px;
+    font-size: 8px;
+  }
+  .map-caption > span {
+    font-size: 25px;
+  }
+  .pin-0 {
+    left: 5%;
+    top: 58%;
+  }
+  .pin-1 {
+    left: 32%;
+    top: 77%;
+  }
+  .pin-2 {
+    left: auto;
+    right: 4%;
+    top: 58%;
+  }
+  .pin-label {
+    font-size: 13px;
+    min-width: 120px;
+  }
+  .pin-label small {
+    font-size: 8px;
+  }
+  .map-key {
+    bottom: 18px;
+    left: 5%;
+    right: auto;
+    font-size: 8px;
+  }
+  .map-key span {
+    display: none;
+  }
+  .realm-bar {
+    display: block;
+    padding: 0;
+  }
+  .realm-title {
+    width: auto;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .realm-title strong {
+    margin: 0;
+    font-size: 17px;
+  }
+  .realm-choices {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .realm-choices button {
+    padding: 12px 15px;
+    border-top: 1px solid #82927833;
+    font-size: 10px;
+  }
+  .realm-choices button > span {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0 8px 0 0;
+  }
+  .realm-choices button small {
+    display: none;
+  }
+  .expedition {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+  .expedition-title h2 {
+    font-size: 39px;
+    margin: 15px 0;
+  }
+  .expedition-title h2 br {
+    display: none;
+  }
+  .expedition-title p {
+    max-width: 100%;
+  }
+  .quest-entry {
+    gap: 12px;
+    padding: 20px 0;
+  }
+  .quest-entry h3 {
+    font-size: 22px;
+  }
+  .entry-sketch {
+    width: 75px;
+  }
+  .entry-arrow {
+    font-size: 20px;
+  }
+  .entry-number {
+    font-size: 10px;
+  }
+  .quest-entry p {
+    font-size: 11px;
+  }
+  .dispatch {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 30px;
+  }
+  .dispatch-seal {
+    display: none;
+  }
+  .dispatch h2 {
+    font-size: 34px;
+  }
+  .game-top h1 {
+    font-size: 31px;
+  }
+  .atlas-footnote {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-pin,
+  .atlas-cta,
+  .entry-sketch {
+    transition: none;
+  }
+}

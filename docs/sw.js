@@ -1,4 +1,4 @@
-const CACHE = "side-quest-v5";
+const CACHE = "side-quest-v6";
 const FILES = [
   "./",
   "./index.html",
@@ -9,6 +9,7 @@ const FILES = [
   "./cloud.js",
   "./kit.js",
   "./icon.svg",
+  "./atlas.svg",
   "./logo.svg",
   "./manifest.webmanifest",
   "./icon-192.png",
