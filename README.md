@@ -1,14 +1,16 @@
 # SIDE QUEST ↗
 
-**A little play. A lot of possibility.**
+**Here be possibilities.**
 
-A community puzzle club by Simoné Govender, Quantum Cupcake Creations.
+A connected puzzle universe and community planning game by Simoné Govender, Quantum Cupcake Creations.
+
+The universe expansion adds eight districts, a quest machine, six new puzzle engines, crafting, companions, resident stories and a customisable room. See [the release notes and 900-idea roadmap](UNIVERSE-RELEASE.md) for working systems and remaining work.
 
 [Play SIDE QUEST](https://cosmicbubblegumgirl.github.io/side-quest/)
 
-![SIDE QUEST desktop preview](docs/screenshots/desktop.jpg)
+![SIDE QUEST universe artwork](docs/social.png)
 
-[View the phone layout](docs/screenshots/mobile.jpg)
+The atlas and quest rooms adapt to phone and desktop layouts.
 
 ## The experience
 

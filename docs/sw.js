@@ -1,9 +1,13 @@
-const CACHE = "side-quest-v8";
+const CACHE = "side-quest-v9";
 const FILES = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
+  "./universe.js",
+  "./universe-ui.js",
+  "./universe-controller.js",
+  "./universe.css",
   "./boot.js",
   "./engine.js",
   "./cloud.js",

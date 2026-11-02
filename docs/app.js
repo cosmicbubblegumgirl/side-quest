@@ -1,4 +1,12 @@
 import {
+  normaliseUniverse,
+  mergeUniverse,
+  reward as rewardUniverse,
+  stats as universeStats,
+} from "./universe.js?v=9";
+import { universeHome, universePage, wonderPage } from "./universe-ui.js?v=9";
+import { connectUniverse } from "./universe-controller.js?v=9";
+import {
   TYPES,
   LEVELS,
   TYPE_INFO,
@@ -216,6 +224,7 @@ let cloudProfile = null,
   ownQuests = [],
   reviews = [],
   remoteReviews = [];
+let universe = normaliseUniverse(await cloud.get("universe", null));
 const app = $("#app"),
   modal = $("#modal");
 function world() {
@@ -281,7 +290,8 @@ function confirmAction(title, message, action) {
 }
 function header(active) {
   return `<header class="topbar"><a href="#home" class="brand" aria-label="SIDE QUEST home"><img src="./icon.svg" alt=""><div class="wordmark"><span>SIDE</span><span>QUEST<small>↗</small></span></div></a><nav class="nav" aria-label="Main navigation">${[
-    ["library", "The quest board"],
+    ["home", "Your universe"],
+    ["library", "Quest board"],
     ["dashboard", "Your notebook"],
     ["kit", "Field kit"],
     ["organise", "For organisations"],
@@ -293,6 +303,7 @@ function header(active) {
     .join(
       "",
     )}</nav><div class="top-actions"><button class="icon-btn" data-action="settings" aria-label="Personalise SIDE QUEST">${icon("sliders")}</button><button class="btn outline small" data-action="auth">${cloud.user() ? `<span class="avatar">${esc(prefs.avatar)}</span> Your account` : "Join the good side " + icon("arrow")}</button><button class="icon-btn menu-toggle" data-action="menu" aria-label="Open navigation" aria-expanded="false">${icon("menu")}</button></div><nav class="mobile-nav" aria-label="Mobile navigation">${[
+    ["home", "Your universe"],
     ["library", "Quest board"],
     ["dashboard", "Notebook"],
     ["kit", "Field kit"],
@@ -322,7 +333,7 @@ function card(d, index = 0) {
   const title = d.community ? d.title : narrTitle(d.type, d.seed);
   return `<article class="mission-card"><div class="card-art ${info.color}" data-world="${prefs.world}">${prefs.world !== "local" ? `<span class="world-motif" aria-hidden="true">${world().emoji}</span>` : ""}<span class="number">QUEST / ${String(index + 1).padStart(2, "0")}</span>${scene(d.type)}<button class="icon-btn bookmark" data-action="bookmark" data-id="${esc(id)}" aria-label="${saved ? "Unsave" : "Save"} ${esc(title)}" aria-pressed="${saved}">${icon(saved ? "heart" : "bookmark")}</button></div><div class="card-body"><div class="between"><span class="badge">${d.community ? "Community brief" : "Practice quest"}</span><span class="tiny muted">${LEVELS[d.level || 0]} · ${5 + (d.level || 0) * 5} min</span></div><h3>${esc(title)}</h3><p>${esc(d.community ? d.brief : info.description)}</p><div class="card-bottom"><span>${record?.completed ? "✓ Feasible plan found" : `${icon(info.icon)} ${esc(info.label)}`}</span><button data-action="play" data-id="${esc(id)}" aria-label="Play ${esc(title)}">${icon("arrow")}</button></div></div></article>`;
 }
-function home() {
+function communityHome() {
   const daily = (Math.floor(Date.now() / 86400000) % 500) + 1;
   const places = [
     ["shifts", "The guild hall", "Match volunteers to tutoring sessions."],
@@ -830,6 +841,65 @@ const KIT_ACTIONS = [
   "clear the table",
 ];
 const CORE_CAPS = [
+  ["home", "Eight discoverable atlas districts"],
+  ["home", "Progression-locked routes"],
+  ["home", "Persistent district visit stamps"],
+  ["home", "Town progress and bridge restoration"],
+  ["home", "Day and night atlas visits"],
+  ["universe/persona", "Explorer name and personal title"],
+  ["universe/persona", "Six explorer classes"],
+  ["universe/persona", "Mood and chaos appetite"],
+  ["universe/persona", "Session-length preference"],
+  ["universe/persona", "Default wonder difficulty"],
+  ["universe/persona", "Machine finish customisation"],
+  ["universe/machine", "Printable serialised quest tickets"],
+  ["universe/machine", "Mood and time informed quest selection"],
+  ["universe/machine", "Thirty fictional ticket settings"],
+  ["universe/machine", "Three daily ticket rerolls"],
+  ["universe/machine", "Cosmetic ticket rarity"],
+  ["universe/machine", "Cipher message puzzles"],
+  ["universe/machine", "Weighted-token balance puzzles"],
+  ["universe/machine", "Lantern memory puzzles"],
+  ["universe/machine", "Number-pattern puzzles"],
+  ["universe/machine", "Odd-symbol observation puzzles"],
+  ["universe/machine", "Keyboard and button maze puzzles"],
+  ["universe/machine", "Persistent wonder-puzzle attempts"],
+  ["universe/machine", "Wonder hints and unlimited retry"],
+  ["universe/inventory", "One-time quest rewards"],
+  ["universe/inventory", "Material and quest coin inventory"],
+  ["universe/inventory", "Object lore inspection"],
+  ["universe/inventory", "Pinned favourite objects"],
+  ["universe/inventory", "Companion egg hatching"],
+  ["universe/inventory", "Crafted reroll charms"],
+  ["universe/workshop", "Eight resource-checked crafting recipes"],
+  ["universe/creatures", "Eight companion species"],
+  ["universe/creatures", "Travel companion selection"],
+  ["universe/creatures", "Companion renaming"],
+  ["universe/creatures", "Feeding and affection"],
+  ["universe/creatures", "Bond stages and radiant appearance"],
+  ["universe/creatures", "Companion habitat preferences"],
+  ["universe/room", "Six furniture positions"],
+  ["universe/room", "Furniture removal returns inventory"],
+  ["universe/room", "Room character and lighting choices"],
+  ["universe/residents", "Four residents with remembered conversations"],
+  ["universe/residents", "Contextual dialogue choices"],
+  ["universe/residents", "Prerequisite-based resident errands"],
+  ["universe/residents", "One-time resident keepsakes"],
+  ["universe/region/folder", "Rune and secret-phrase door"],
+  ["universe/portal", "Reusable key and postcard destinations"],
+  ["universe/story", "Persistent branching letter story"],
+  ["universe/story", "Alternate story-route replay"],
+  ["universe/museum", "Sixteen earned achievement stamps"],
+  ["universe/museum", "Quest XP and player levels"],
+  ["universe/museum", "Three-stage puzzle boss"],
+  ["universe/museum", "Boss crown trophy"],
+  ["universe/museum", "Milestone-based atlas chapters"],
+  ["universe/journal", "Region-pinned field notes"],
+  ["universe/journal", "Search field notes"],
+  ["universe/journal", "Completed discovery archive"],
+  ["dashboard", "Universe backup and import"],
+  ["dashboard", "Private universe snapshot sync"],
+
   ["library", "6,000 seeded puzzles"],
   ["library", "Three puzzle engines"],
   ["library", "Four difficulty levels"],
@@ -845,7 +915,7 @@ const CORE_CAPS = [
   ["library", "Paginated quest library"],
   ["library", "Random quest choice"],
   ["library", "Save favourite quests"],
-  ["home", "Daily rotating starter quests"],
+  ["community", "Daily rotating starter quests"],
   ["settings", "Six story worlds"],
   ["settings", "Five colour themes"],
   ["settings", "Fifteen personal avatars"],
@@ -901,7 +971,7 @@ function capabilities() {
   const filtered = caps.filter((c) =>
     c.name.toLowerCase().includes(q.toLowerCase()),
   );
-  return `${header("capabilities")}<main id="main" class="container page"><div class="eyebrow">A LOOK INSIDE THE TOOLBOX</div><h1 class="page-title">Small actions.<br>Quite a lot of them.</h1><p class="subtext">${caps.length} usable capabilities across the library, personal notebook, organisation workspace and 24 planning tools. Table actions are listed per tool so you can see exactly what is included.</p><div class="toolbar"><div class="search">${icon("search")}<input id="cap-search" type="search" aria-label="Find a capability" placeholder="Find a capability…" value="${esc(q)}"></div><button class="btn outline" data-action="export-capabilities">Export list</button></div><p class="tiny muted">${filtered.length} matching capabilities · puzzle variants are counted separately from features.</p><div class="capabilities-grid">${filtered.map((c) => `<a class="capability" href="#${c.route}">${icon("check")} ${esc(c.name)} ${icon("arrow")}</a>`).join("")}</div></main>${footer()}`;
+  return `${header("capabilities")}<main id="main" class="container page"><div class="eyebrow">A LOOK INSIDE THE TOOLBOX</div><h1 class="page-title">Small actions.<br>Quite a lot of them.</h1><p class="subtext">${caps.length} usable capabilities across your universe, the library, personal notebook, organisation workspace and 24 planning tools. Table actions are listed per tool so you can see exactly what is included.</p><div class="toolbar"><div class="search">${icon("search")}<input id="cap-search" type="search" aria-label="Find a capability" placeholder="Find a capability…" value="${esc(q)}"></div><button class="btn outline" data-action="export-capabilities">Export list</button></div><p class="tiny muted">${filtered.length} matching capabilities · puzzle variants are counted separately from features.</p><div class="capabilities-grid">${filtered.map((c) => `<a class="capability" href="#${c.route}">${icon("check")} ${esc(c.name)} ${icon("arrow")}</a>`).join("")}</div></main>${footer()}`;
 }
 async function render() {
   const seq = ++renderSeq;
@@ -920,37 +990,51 @@ async function render() {
   if (seq !== renderSeq) return;
   app.innerHTML =
     base === "home"
-      ? home()
-      : base === "library"
-        ? library()
-        : base === "play"
-          ? game()
-          : base === "dashboard"
-            ? dashboard()
-            : base === "kit"
-              ? kitPage(route.split("/")[1])
-              : base === "settings"
-                ? settingsPage()
-                : base === "organise"
-                  ? organiser()
-                  : base === "about"
-                    ? aboutPage()
-                    : base === "privacy"
-                      ? privacy()
-                      : base === "capabilities"
-                        ? capabilities()
-                        : `${header("")}<main class="container page" id="main"><div class="empty"><h1>This path took a little detour.</h1><a class="btn primary" href="#home">Back home</a></div></main>${footer()}`;
+      ? header("home") + universeHome(universe) + footer()
+      : base === "universe"
+        ? header("home") +
+          universePage(universe, route.split("/").slice(1)) +
+          footer()
+        : base === "wonder"
+          ? header("home") + wonderPage(universe) + footer()
+          : base === "community"
+            ? communityHome()
+            : base === "library"
+              ? library()
+              : base === "play"
+                ? game()
+                : base === "dashboard"
+                  ? dashboard()
+                  : base === "kit"
+                    ? kitPage(route.split("/")[1])
+                    : base === "settings"
+                      ? settingsPage()
+                      : base === "organise"
+                        ? organiser()
+                        : base === "about"
+                          ? aboutPage()
+                          : base === "privacy"
+                            ? privacy()
+                            : base === "capabilities"
+                              ? capabilities()
+                              : `${header("")}<main class="container page" id="main"><div class="empty"><h1>This path took a little detour.</h1><a class="btn primary" href="#home">Back home</a></div></main>${footer()}`;
   document.title =
-    (base === "play" && g
-      ? g.title
-      : {
-          library: "The quest board",
-          dashboard: "Your notebook",
-          kit: "Field kit",
-          organise: "For organisations",
-          settings: "Make it yours",
-        }[base] || "Play something useful") + " · SIDE QUEST";
+    (base === "wonder" && universe.active
+      ? universe.active.ticket.title
+      : base === "play" && g
+        ? g.title
+        : {
+            library: "The quest board",
+            dashboard: "Your notebook",
+            kit: "Field kit",
+            organise: "For organisations",
+            settings: "Make it yours",
+          }[base] || "Play something useful") + " · SIDE QUEST";
   document.body.classList.toggle("focus-mode", focus);
+  if (["home", "universe", "wonder"].includes(base))
+    document.title =
+      ($("main h1")?.innerText.replace(/\s+/g, " ") || "Your universe") +
+      " · SIDE QUEST";
 }
 function redrawLibrary() {
   const input = $("#quest-search");
@@ -1065,12 +1149,13 @@ async function sync() {
     for (const t of TOOLS)
       if (!(kits[t.id] || []).length && validRows(t, data.kits[t.id]))
         kits[t.id] = data.kits[t.id];
+  universe = mergeUniverse(universe, data.universe);
   await cloud.request("sq_state", {
     method: "POST",
     upsert: true,
     body: {
       user_id: uid,
-      data: { records, bookmarks, journal, custom, prefs, kits },
+      data: { records, bookmarks, journal, custom, prefs, kits, universe },
       updated_at: new Date().toISOString(),
     },
   });
@@ -1081,6 +1166,7 @@ async function sync() {
     persist("custom", custom),
     persist("preferences", prefs),
     persist("kits", kits),
+    persist("universe", universe),
   ]);
   await loadRemote();
   if (modal.open) modal.close();
@@ -1109,6 +1195,7 @@ async function finish() {
     return;
   }
   g.completed = true;
+  await awardPractice(g);
   await saveGame();
   celebrate();
   showModal(
@@ -1226,6 +1313,7 @@ async function backup() {
     journal,
     custom,
     kits,
+    universe,
   });
 }
 function validRows(tool, rows) {
@@ -1708,6 +1796,8 @@ const actions = {
       for (const tool of TOOLS)
         if (validRows(tool, data.kits[tool.id]))
           kits[tool.id] = data.kits[tool.id];
+    if (data.universe) universe = mergeUniverse(universe, data.universe);
+    await persist("universe", universe);
     await Promise.all([
       persist("plans", records),
       persist("bookmarks", bookmarks),
@@ -2025,6 +2115,8 @@ const actions = {
       persist("custom", custom),
       persist("kits", kits),
     ]);
+    universe = normaliseUniverse(null);
+    await persist("universe", universe);
     modal.close();
     render();
     toast("Local notebook cleared.");
@@ -2432,6 +2524,49 @@ setInterval(() => {
       "A little stretch, a sip of water, a moment away. Your plan will keep.",
     );
 }, 1000);
+
+async function awardPractice(record, id = record.id) {
+  if (
+    !record.completed ||
+    !record.config ||
+    !evaluate(record.config, record.plan).valid
+  )
+    return;
+  const region =
+    { shifts: "moss", deliveries: "cloud", packs: "pocket" }[
+      record.config.type
+    ] || "moss";
+  const result = rewardUniverse(universe, "plan:" + id, {
+    type: record.config.type,
+    region,
+    level: record.config.level || 0,
+    title: record.title || "A useful practice plan",
+    seconds: record.seconds || 0,
+    assisted: (record.notes || "").includes("assisted example"),
+  });
+  if (result.fresh) {
+    universe = result.state;
+    await persist("universe", universe);
+  }
+}
+const universeController = connectUniverse({
+  getState: () => universe,
+  setState: async (value) => {
+    universe = value;
+    await cloud.put("universe", universe);
+  },
+  render,
+  showModal,
+  toast,
+  modal,
+  celebrate,
+});
+// Existing feasible practice solutions are discoveries, too. Each plan is counted once.
+for (const [id, record] of Object.entries(records)) {
+  if (!id.startsWith("q.")) await awardPractice(record, id);
+}
+await persist("universe", universe);
+
 await render();
 loadRemote()
   .then(() => {
