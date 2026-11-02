@@ -2929,3 +2929,5 @@ h2,
     transition: none;
   }
 }
+.topbar .btn.outline,.topbar .icon-btn{background:transparent;color:#f3e9d4}.topbar .icon-btn:hover{background:#39514b}.topbar .btn.outline:hover{background:#39514b}
+@media(max-width:760px){.atlas-intro h1{font-size:clamp(45px,15vw,67px)}.atlas-intro h1 br{display:block}}

@@ -1,4 +1,4 @@
-const CACHE = "side-quest-v6";
+const CACHE = "side-quest-v7";
 const FILES = [
   "./",
   "./index.html",
