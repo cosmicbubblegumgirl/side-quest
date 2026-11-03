@@ -1,4 +1,11 @@
 import {
+  extraGameBody,
+  modifierControls,
+  activeRuleBadges,
+  mapAnnotations,
+  fieldworkPage,
+} from "./expeditions-ui.js?v=10";
+import {
   REGIONS,
   REALMS,
   CLASSES,
@@ -15,7 +22,7 @@ import {
   achievements,
   npcReady,
   makePuzzle,
-} from "./universe.js?v=9";
+} from "./universe.js?v=10";
 const e = (x) =>
   String(x ?? "").replace(
     /[&<>"']/g,
@@ -74,6 +81,9 @@ export function universeNav(s, active) {
     ["creatures", "Companions"],
     ["room", "Your room"],
     ["journal", "Field journal"],
+    ["casebook", "Mystery board"],
+    ["cartography", "Map markers"],
+    ["recipes", "Challenge recipes"],
     ["residents", "Residents"],
     ["portal", "Postcard portal"],
     ["museum", "Museum"],
@@ -87,7 +97,7 @@ export function universeNav(s, active) {
 }
 export function universeHome(s) {
   const n = stats(s);
-  return `<main id="main" class="u-shell u-home ${s.night ? "u-night" : ""}">${universeNav(s, "home")}<div class="u-atlas-layout"><aside class="u-atlas-margin"><div class="u-edition">AN ATLAS OF<br>UNLIKELY POSSIBILITIES<br><span>EST. IN A MOMENT OF CURIOSITY</span></div><a class="u-machine-door" href="#universe/machine"><span class="u-machine-small">✦<i>?</i>✦</span><small>IT HAS A QUEST FOR YOU</small><strong>The slightly<br>unreliable machine.</strong><span>Turn the handle ↗</span></a><a class="u-return" href="#universe/journal"><span>${n.wins ? `${n.wins} adventures kept` : "A blank page is a good start."}</span>Your field journal ↗</a><div class="u-town-note"><span>THE WORLD REMEMBERS</span><b>${e(n.town)}</b><p>${n.wins < 3 ? `${3 - n.wins} more quests will repair the old bridge.` : n.wins < 6 ? `${6 - n.wins} more quests will reopen the market.` : n.wins < 12 ? `${12 - n.wins} more quests will light the town.` : "You helped this little universe find its feet."}</p></div></aside><section class="u-world-map" aria-label="Explore the SIDE QUEST universe"><div class="u-map-heading"><span>YOU HAVE TAKEN A WRONG TURN.<br>EXCELLENT.</span><h1>Here be<br> possibilities.</h1></div><div class="u-map-moon" aria-hidden="true">☾</div><div class="u-map-coordinate">SQ / ${String(s.seed % 9999).padStart(4, "0")}<br>CHARTED ${n.explored} OF 8</div><svg class="u-trails" viewBox="0 0 1000 780" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="constellations" width="100" height="110" patternUnits="userSpaceOnUse"><circle cx="25" cy="31" r="1" fill="#bac1ac"/><circle cx="72" cy="89" r=".7" fill="#bac1ac"/></pattern></defs><path fill="url(#constellations)" d="M0 0h1000v780H0z"/><g fill="none" stroke="#8da398" stroke-width="1" stroke-dasharray="4 8" opacity=".5"><path d="M230 289Q330 120 490 195T750 273 620 445 340 507 150 569M620 445Q800 400 830 554T510 655 340 507"/></g><path d="M200 690q80-30 150 0m-130 17q55-17 110 0" stroke="#89a79a" opacity=".3"/><path d="M175 554Q270 490 340 507" stroke="${n.wins >= 3 ? "#edc379" : "#62756c"}" stroke-width="${n.wins >= 3 ? 4 : 1}"/></svg>${REGIONS.map(
+  return `<main id="main" class="u-shell u-home ${s.night ? "u-night" : ""}">${universeNav(s, "home")}<div class="u-atlas-layout"><aside class="u-atlas-margin"><div class="u-edition">AN ATLAS OF<br>UNLIKELY POSSIBILITIES<br><span>EST. IN A MOMENT OF CURIOSITY</span></div><a class="u-machine-door" href="#universe/machine"><span class="u-machine-small">✦<i>?</i>✦</span><small>IT HAS A QUEST FOR YOU</small><strong>The slightly<br>unreliable machine.</strong><span>Turn the handle ↗</span></a><a class="u-return" href="#universe/journal"><span>${n.wins ? `${n.wins} ${n.wins === 1 ? "adventure" : "adventures"} kept` : "A blank page is a good start."}</span>Your field journal ↗</a><div class="u-town-note"><span>THE WORLD REMEMBERS</span><b>${e(n.town)}</b><p>${n.wins < 3 ? `${3 - n.wins} more ${3 - n.wins === 1 ? "quest" : "quests"} will repair the old bridge.` : n.wins < 6 ? `${6 - n.wins} more ${6 - n.wins === 1 ? "quest" : "quests"} will reopen the market.` : n.wins < 12 ? `${12 - n.wins} more ${12 - n.wins === 1 ? "quest" : "quests"} will light the town.` : "You helped this little universe find its feet."}</p></div></aside><section class="u-world-map" aria-label="Explore the SIDE QUEST universe"><div class="u-map-heading"><span>YOU HAVE TAKEN A WRONG TURN.<br>EXCELLENT.</span><h1>Here be<br> possibilities.</h1></div><div class="u-map-moon" aria-hidden="true">☾</div><div class="u-map-coordinate">SQ / ${String(s.seed % 9999).padStart(4, "0")}<br>CHARTED ${n.explored} OF 8</div><svg class="u-trails" viewBox="0 0 1000 780" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="constellations" width="100" height="110" patternUnits="userSpaceOnUse"><circle cx="25" cy="31" r="1" fill="#bac1ac"/><circle cx="72" cy="89" r=".7" fill="#bac1ac"/></pattern></defs><path fill="url(#constellations)" d="M0 0h1000v780H0z"/><g fill="none" stroke="#8da398" stroke-width="1" stroke-dasharray="4 8" opacity=".5"><path d="M230 289Q330 120 490 195T750 273 620 445 340 507 150 569M620 445Q800 400 830 554T510 655 340 507"/></g><path d="M200 690q80-30 150 0m-130 17q55-17 110 0" stroke="#89a79a" opacity=".3"/><path d="M175 554Q270 490 340 507" stroke="${n.wins >= 3 ? "#edc379" : "#62756c"}" stroke-width="${n.wins >= 3 ? 4 : 1}"/></svg>${REGIONS.map(
     (r, i) => {
       const open = regionOpen(s, r.id),
         seen = !!s.visits[r.id];
@@ -95,7 +105,7 @@ export function universeHome(s) {
     },
   ).join(
     "",
-  )}<div class="u-map-footer"><span>✣ YOUR NEXT TURN IS YOURS.</span>${btn("night", s.night ? "Visit daylight ☀" : "Visit after dark ☾")}</div><a href="#universe/creatures" class="u-map-companion" aria-label="Visit your companion">${creatureArt(s.equipped, s.companions[s.equipped]?.bond)}</a></section></div><section class="u-paper-strip"><div><span>FIELD NOTE NO. 001</span><h2>Little puzzles.<br>Longer stories.</h2></div><p>A puzzle can become a map scrap. A map scrap can become a key. A key can open somewhere you did not know you were looking for.</p><a href="#universe/story">A letter needs delivering. Start there. ↗</a></section><section class="u-real-work"><div><span class="u-label">THE GOOD AT THE HEART OF IT</span><h2>Some quests leave the map.</h2><p>Alongside this fictional universe, solve volunteer schedules, food routes and school-pack puzzles. Published community briefs go to the organisation for human review.</p></div><div><a class="u-button" href="#library">Explore 6,000 planning puzzles ↗</a><a class="u-text-link" href="#organise">Bring a community brief</a><small>Practice play is never counted as real-world impact.</small></div></section></main>`;
+  )}${mapAnnotations(s)}<div class="u-map-footer"><span>✣ YOUR NEXT TURN IS YOURS.</span><div class="x-map-tools"><a href="#universe/cartography">Annotate the atlas ↗</a>${btn("night", s.night ? "Visit daylight ☀" : "Visit after dark ☾")}</div></div><a href="#universe/creatures" class="u-map-companion" aria-label="Visit your companion">${creatureArt(s.equipped, s.companions[s.equipped]?.bond)}</a></section></div><section class="u-paper-strip"><div><span>FIELD NOTE NO. 001</span><h2>Little puzzles.<br>Longer stories.</h2></div><p>A puzzle can become a map scrap. A map scrap can become a key. A key can open somewhere you did not know you were looking for.</p><a href="#universe/story">A letter needs delivering. Start there. ↗</a></section><section class="u-real-work"><div><span class="u-label">THE GOOD AT THE HEART OF IT</span><h2>Some quests leave the map.</h2><p>Alongside this fictional universe, solve volunteer schedules, food routes and school-pack puzzles. Published community briefs go to the organisation for human review.</p></div><div><a class="u-button" href="#library">Explore 6,000 planning puzzles ↗</a><a class="u-text-link" href="#organise">Bring a community brief</a><small>Practice play is never counted as real-world impact.</small></div></section></main>`;
 }
 function page(s, title, subtitle, content, tab = "") {
   return `<main id="main" class="u-shell u-subpage">${universeNav(s, tab)}<div class="u-page-content"><a href="#home" class="u-back">← BACK TO YOUR ATLAS</a><div class="u-page-head"><span class="u-label">SIDE QUEST / CHAPTER ${String(s.journeys + 1).padStart(2, "0")}</span><h1>${title}</h1><p>${subtitle}</p></div>${content}</div></main>`;
@@ -153,7 +163,7 @@ function ticket(t) {
 function machine(s) {
   const m = s.machine,
     t = m.ticket;
-  return `<div class="u-machine-layout"><section class="u-machine" data-skin="${s.persona.skin}"><div class="u-machine-label">THE DEPARTMENT OF<br><b>UNEXPECTED DETOURS</b></div><div class="u-machine-window"><span>✦</span><p>${m.rolls ? "“I have considered your request.<br>I have added a small complication.”" : "“Ah. A curious person.<br>I was hoping one would turn up.”"}</p><span>✦</span></div><div class="u-machine-controls"><label>Quest kind<select id="u-machine-type">${[["any", "Let the machine decide"], ["community", "Useful community planning"], ...MINI_TYPES.map((t) => [t, MINI_NAMES[t]])].map(([id, name]) => `<option value="${id}" ${m.type === id ? "selected" : ""}>${name}</option>`).join("")}</select></label><label>World setting<select id="u-machine-realm">${REALMS.map((w, i) => `<option value="${i}" ${m.realm === i ? "selected" : ""}>${e(w)}</option>`).join("")}</select></label><label>Difficulty crank<select id="u-machine-level">${levelNames.map((x, i) => `<option value="${i}" ${s.persona.level === i ? "selected" : ""}>${x}</option>`).join("")}</select></label><label>Mood dial<select id="u-machine-mood">${option(MOODS, s.persona.mood)}</select></label></div><div class="u-machine-handle">${btn("roll", `Turn the handle <span>↻</span>`)}${t ? btn("reroll", `Reroll this ticket · ${m.rerolls} left`, "", "u-quiet") : ""}</div><div class="u-machine-slot"></div><small>NO PAYMENT REQUIRED. SOME WONDER MAY OCCUR.</small></section><section class="u-output" aria-live="polite">${t ? `${ticket(t)}${btn("accept", "Take this side quest ↗")}<p class="u-output-note">A ticket’s rarity changes its appearance, never its price or your chance of winning.</p>` : `<div class="u-output-empty"><span>⌁</span><h2>A small space<br>for the unexpected.</h2><p>Choose your dials. Or leave them alone.<br>The machine has opinions either way.</p></div>`}<div class="u-machine-footnote"><span>YOUR CURRENT APPETITE</span><p>${e(s.persona.mood)} · ${s.persona.minutes} minutes · ${levelNames[s.persona.level]}<br><a href="#universe/persona">Change your explorer persona ↗</a></p></div></section></div>`;
+  return `<div class="u-machine-layout"><section class="u-machine" data-skin="${s.persona.skin}"><div class="u-machine-label">THE DEPARTMENT OF<br><b>UNEXPECTED DETOURS</b></div><div class="u-machine-window"><span>✦</span><p>${m.rolls ? "“I have considered your request.<br>I have added a small complication.”" : "“Ah. A curious person.<br>I was hoping one would turn up.”"}</p><span>✦</span></div><div class="u-machine-controls"><label>Quest kind<select id="u-machine-type">${[["any", "Let the machine decide"], ["community", "Useful community planning"], ...MINI_TYPES.map((t) => [t, MINI_NAMES[t]])].map(([id, name]) => `<option value="${id}" ${m.type === id ? "selected" : ""}>${name}</option>`).join("")}</select></label><label>World setting<select id="u-machine-realm">${REALMS.map((w, i) => `<option value="${i}" ${m.realm === i ? "selected" : ""}>${e(w)}</option>`).join("")}</select></label><label>Difficulty crank<select id="u-machine-level">${levelNames.map((x, i) => `<option value="${i}" ${s.persona.level === i ? "selected" : ""}>${x}</option>`).join("")}</select></label><label>Mood dial<select id="u-machine-mood">${option(MOODS, s.persona.mood)}</select></label></div><div class="u-machine-handle">${btn("roll", `Turn the handle <span>↻</span>`)}${t ? btn("reroll", `Reroll this ticket · ${m.rerolls} left`, "", "u-quiet") : ""}</div>${modifierControls(s)}<div class="u-machine-slot"></div><small>NO PAYMENT REQUIRED. SOME WONDER MAY OCCUR.</small></section><section class="u-output" aria-live="polite">${t ? `${ticket(t)}${btn("accept", "Take this side quest ↗")}<p class="u-output-note">A ticket’s rarity changes its appearance, never its price or your chance of winning.</p>` : `<div class="u-output-empty"><span>⌁</span><h2>A small space<br>for the unexpected.</h2><p>Choose your dials. Or leave them alone.<br>The machine has opinions either way.</p></div>`}<div class="u-machine-footnote"><span>YOUR CURRENT APPETITE</span><p>${e(s.persona.mood)} · ${s.persona.minutes} minutes · ${levelNames[s.persona.level]}<br><a href="#universe/persona">Change your explorer persona ↗</a></p></div></section></div>`;
 }
 function region(s, id) {
   const r = REGIONS.find((r) => r.id === id);
@@ -193,7 +203,7 @@ function journal(s) {
   }</section></div>`;
 }
 function portal(s) {
-  return `<div class="u-portal-intro"><span>◉</span><h2>Thirty places<br>you almost remember.</h2><p>Different fictional settings for the six wonder-puzzle engines. Your between-worlds key opens every postcard; it is never consumed.</p>${s.inventory.key ? "<b>Key in your backpack ✓</b>" : '<a class="u-button" href="#universe/workshop">Make a between-worlds key ↗</a>'}</div><div class="u-postcards">${REALMS.map((w, i) => `<button class="u-postcard" data-u-action="portal" data-id="${i}" ${s.inventory.key ? "" : "disabled"}><small>POSTCARD / ${String(i + 1).padStart(2, "0")}</small><span>${["☾", "✧", "♜", "♧", "◇"][i % 5]}</span><strong>${e(w)}</strong><b>${s.claimed["realm-" + i] ? "VISITED ✓" : "A POSSIBLE DETOUR ↗"}</b></button>`).join("")}</div>`;
+  return `<div class="u-portal-intro"><span>◉</span><h2>Thirty places<br>you almost remember.</h2><p>Different fictional settings for the twelve wonder-puzzle engines. Your between-worlds key opens every postcard; it is never consumed.</p>${s.inventory.key ? "<b>Key in your backpack ✓</b>" : '<a class="u-button" href="#universe/workshop">Make a between-worlds key ↗</a>'}</div><div class="u-postcards">${REALMS.map((w, i) => `<button class="u-postcard" data-u-action="portal" data-id="${i}" ${s.inventory.key ? "" : "disabled"}><small>POSTCARD / ${String(i + 1).padStart(2, "0")}</small><span>${["☾", "✧", "♜", "♧", "◇"][i % 5]}</span><strong>${e(w)}</strong><b>${s.claimed["realm-" + i] ? "VISITED ✓" : "A POSSIBLE DETOUR ↗"}</b></button>`).join("")}</div>`;
 }
 function museum(s) {
   const n = stats(s);
@@ -282,6 +292,23 @@ export function universePage(s, parts) {
       () => story(s),
     ],
   };
+  if (["casebook", "cartography", "recipes"].includes(tab))
+    return page(
+      s,
+      {
+        casebook: "The things that might be connected.",
+        cartography: "A little ink of your own.",
+        recipes: "Challenges, mixed to taste.",
+      }[tab],
+      {
+        casebook: "Your observations. Your theories. Your very own red string.",
+        cartography:
+          "An atlas is never quite finished until someone writes in the margins.",
+        recipes: "Custom rules for a different sort of detour.",
+      }[tab],
+      fieldworkPage(s, tab),
+      tab,
+    );
   const p = pages[tab];
   return p
     ? page(s, p[0], p[1], p[2](), tab)
@@ -304,7 +331,7 @@ export function wonderPage(s) {
     );
   const t = a.ticket,
     p = makePuzzle(t, a.round || 0);
-  let body = "";
+  let body = extraGameBody(p, a);
   if (p.type === "cipher")
     body = `<p>Each letter was moved <b>${p.shift} places forward</b> through the alphabet. Move it back to read the message.</p><div class="u-cipher">${p.cipher
       .split("")
@@ -324,16 +351,22 @@ export function wonderPage(s) {
     body = `<p>${preview ? "Study the lantern order for as long as you like. Then turn the card over and recreate it." : "Choose the lanterns in the same order. Nothing is timed."}</p>${preview ? `<div class="u-memory-sequence">${p.sequence.map((x, i) => `<span><small>${i + 1}</small>${p.symbols[x]}</span>`).join("")}</div>${btn("recall", "I have it. Turn the card over ↗")}` : `<div class="u-lanterns">${p.symbols.map((x, i) => btn("lantern", `<span>${x}</span><small>${["Moon", "Sprout", "Diamond", "Bolt"][i]}</small>`, i)).join("")}</div><div class="u-memory-answer" aria-live="polite">${(Array.isArray(a.answer) ? a.answer : []).map((x) => p.symbols[x]).join(" · ") || "Your lanterns will appear here."}</div><small>${a.answer?.length || 0} / ${p.sequence.length} lanterns</small>${btn("memory-reset", "Clear the lanterns", "", "u-quiet")}`}`;
   }
   if (p.type === "observe")
-    body = `<p>One symbol is different. Find it. There is no timer, and a wrong guess is just another look.</p><div class="u-observation">${p.cells.map((x, i) => btn("observe", `<span aria-hidden="true">${x}</span><small class="u-sr-only">Symbol ${i + 1}: ${x}</small>`, i)).join("")}</div>`;
+    body = `<p>One symbol is different. Find it. There is no timer, and a wrong guess is just another look.</p><div class="u-observation ${t.mods?.mirror ? "x-mirror" : ""}">${p.cells.map((x, i) => btn("observe", `<span aria-hidden="true">${x}</span><small class="u-sr-only">Symbol ${i + 1}: ${x}</small>`, i)).join("")}</div>`;
   if (p.type === "maze") {
     const position = a.position || 0;
-    body = `<p>Find the lit exit. Walls stay put, even when the corridor insists otherwise. Use the buttons or your keyboard’s arrow keys.</p><div class="u-maze" style="--size:${p.size}" aria-label="${p.size} by ${p.size} corridor puzzle">${Array.from({ length: p.size * p.size }, (_, i) => `<span class="${p.walls.includes(i) ? "wall" : ""} ${i === position ? "player" : ""} ${i === p.end ? "exit" : ""}" aria-label="${i === position ? "Your position" : i === p.end ? "Exit" : p.walls.includes(i) ? "Wall" : "Open floor"}">${i === position ? "✦" : i === p.end ? "☀" : ""}</span>`).join("")}</div><div class="u-maze-controls">${["up", "left", "down", "right"].map((d, i) => btn("move", `<span aria-hidden="true">${["↑", "←", "↓", "→"][i]}</span><small class="u-sr-only">Move ${d}</small>`, d)).join("")}</div><small>At row ${Math.floor(position / p.size) + 1}, column ${(position % p.size) + 1}.</small>`;
+    const fogged = (i) =>
+      t.mods?.fog &&
+      Math.abs((i % p.size) - (position % p.size)) +
+        Math.abs(Math.floor(i / p.size) - Math.floor(position / p.size)) >
+        2;
+    body = `<p>Find the lit exit. Use the direction buttons or your keyboard’s arrow keys.${t.mods?.fog ? " Your lantern reveals only nearby tiles." : ""}</p><div class="u-maze ${t.mods?.mirror ? "x-mirror" : ""}" style="--size:${p.size}" aria-label="${p.size} by ${p.size} corridor puzzle">${Array.from({ length: p.size * p.size }, (_, i) => `<span class="${p.walls.includes(i) ? "wall" : ""} ${i === position ? "player" : ""} ${i === p.end ? "exit" : ""} ${fogged(i) ? "x-fog" : ""}" aria-label="${fogged(i) ? "Unexplored tile" : i === position ? "Your position" : i === p.end ? "Exit" : p.walls.includes(i) ? "Wall" : "Open floor"}">${i === position ? "✦" : i === p.end && !fogged(i) ? "☀" : ""}</span>`).join("")}</div><div class="u-maze-controls">${["up", "left", "down", "right"].map((d, i) => btn("move", `<span aria-hidden="true">${["↑", "←", "↓", "→"][i]}</span><small class="u-sr-only">Move ${d}</small>`, d)).join("")}</div><small>At row ${Math.floor(position / p.size) + 1}, column ${(position % p.size) + 1}.</small>`;
   }
+
   return page(
     s,
     e(t.title),
     `${e(REALMS[t.realm || 0])} · ${levelNames[t.level]} · ${a.boss ? `BOSS STAGE ${(a.round || 0) + 1} OF 3` : "A SMALL, COMPLETE ADVENTURE"}`,
-    `<div class="u-wonder-layout"><section class="u-wonder-board"><div class="u-wonder-top"><span>SQ-${t.seed} / ${p.type.toUpperCase()}</span><span>${a.boss ? "THE BUREAUCRAT IS WAITING" : "ONE SMALL POSSIBILITY"}</span></div><div class="u-wonder-body">${body}<div class="u-wonder-feedback ${a.feedback ? "shown" : ""}" role="status">${e(a.feedback || "")}</div><div class="u-wonder-actions">${!(p.type === "memory" && a.phase !== "recall") && p.type !== "observe" ? btn("check-wonder", a.boss ? "File this stage ↗" : "Check my discovery ↗") : ""}${btn("hint", "A little nudge", "", "u-quiet")}${btn("restart-wonder", "Try a clean page", "", "u-quiet")}</div>${a.hint ? `<div class="u-hint">${e(a.hint)}</div>` : ""}</div></section><aside class="u-wonder-aside">${creatureArt(s.equipped, s.companions[s.equipped]?.bond)}<h3>${e(s.companions[s.equipped]?.name || "Your companion")} believes in you.</h3><p>There is no streak to lose. No life to run out of. Your discoveries wait while you take a break.</p><a href="#universe/journal">Keep a field note ↗</a><a href="#universe/machine">Take a different ticket ↗</a><span>${a.mistakes || 0} attempts that taught you something.</span></aside></div>`,
+    `<div class="u-wonder-layout"><section class="u-wonder-board"><div class="u-wonder-top"><span>SQ-${t.seed} / ${p.type.toUpperCase()}</span><span>${a.boss ? "THE BUREAUCRAT IS WAITING" : "ONE SMALL POSSIBILITY"}</span></div><div class="u-wonder-body">${activeRuleBadges(a, p)}<fieldset class="x-plain-fieldset" ${a.failed ? "disabled" : ""}>${body}</fieldset><div class="u-wonder-feedback ${a.feedback ? "shown" : ""}" role="status">${e(a.feedback || "")}</div><div class="u-wonder-actions">${!(p.type === "memory" && a.phase !== "recall") && p.type !== "observe" && !a.failed ? btn("check-wonder", a.boss ? "File this stage ↗" : "Check my discovery ↗") : ""}${t.mods?.noHints || a.failed ? "" : btn("hint", "A little nudge", "", "u-quiet")}${btn("restart-wonder", "Try a clean page", "", "u-quiet")}</div>${a.hint ? `<div class="u-hint">${e(a.hint)}</div>` : ""}</div></section><aside class="u-wonder-aside">${creatureArt(s.equipped, s.companions[s.equipped]?.bond)}<h3>${e(s.companions[s.equipped]?.name || "Your companion")} believes in you.</h3><p>There is no streak to lose. No life to run out of. Your discoveries wait while you take a break.</p><a href="#universe/journal">Keep a field note ↗</a><a href="#universe/machine">Take a different ticket ↗</a><span>${a.mistakes || 0} ${(a.mistakes || 0) === 1 ? "attempt" : "attempts"} that taught you something.</span></aside></div>`,
     "machine",
   );
 }

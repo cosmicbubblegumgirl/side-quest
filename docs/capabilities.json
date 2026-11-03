@@ -1,7 +1,95 @@
 {
-  "count": 497,
+  "count": 519,
   "counting": "Table operations are counted per tool. Puzzle editions and world skins are separate.",
   "capabilities": [
+    {
+      "surface": "universe/machine",
+      "capability": "Parcel-deduction cases"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "Arithmetic escape locks"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "Matching-pair cabinets"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "Constrained errand ordering"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "Cross-toggle lantern circuits"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "Authored door riddles"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "No-hint challenge rule"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "One-check challenge rule"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "Finite move budgets"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "Mirrored spatial boards"
+    },
+    {
+      "surface": "universe/machine",
+      "capability": "Maze lantern fog"
+    },
+    {
+      "surface": "universe/recipes",
+      "capability": "Save and apply custom challenge recipes"
+    },
+    {
+      "surface": "universe/recipes",
+      "capability": "Three ready-made challenge presets"
+    },
+    {
+      "surface": "universe/cartography",
+      "capability": "Custom atlas marker positions and notes"
+    },
+    {
+      "surface": "universe/cartography",
+      "capability": "Hide and show personal atlas annotations"
+    },
+    {
+      "surface": "universe/cartography",
+      "capability": "Archive and restore map markers"
+    },
+    {
+      "surface": "universe/casebook",
+      "capability": "Typed personal clue cards"
+    },
+    {
+      "surface": "universe/casebook",
+      "capability": "Red-string connections with written reasons"
+    },
+    {
+      "surface": "universe/casebook",
+      "capability": "Resolve and reopen theories"
+    },
+    {
+      "surface": "universe/casebook",
+      "capability": "Archive and restore clues and connections"
+    },
+    {
+      "surface": "universe/casebook",
+      "capability": "Earned-postcard clue pinning"
+    },
+    {
+      "surface": "universe/casebook",
+      "capability": "Progress and unfinished-quest recap"
+    },
     {
       "surface": "home",
       "capability": "Eight discoverable atlas districts"

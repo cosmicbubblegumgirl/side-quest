@@ -6,8 +6,8 @@ SIDE QUEST now connects its original community-planning practice puzzles to a pe
 
 - Eight atlas districts with progression gates, visit stamps, drifting islands, a day/night visit toggle, a repaired bridge and town progress.
 - Quest persona: name, title, class, mood, chaos appetite, available time, default difficulty and machine finish. Mood, time and chaos affect the machine's automatic quest selection.
-- Quest machine: six wonder engines or community-inspired planning, thirty fictional setting labels, four difficulties, serialised tickets, cosmetic rarity, three daily rerolls and a craftable reroll charm. There are no paid rolls.
-- Six deterministic, independently playable puzzle engines: Caesar messages, weighted token balances, lantern memory, number patterns, odd-symbol observation and maze navigation. Every engine has four complexity levels, instructions, hints, retry and persistent attempts.
+- Quest machine: twelve wonder engines or community-inspired planning, thirty fictional setting labels, four difficulties, serialised tickets, cosmetic rarity, three daily rerolls and a craftable reroll charm. There are no paid rolls.
+- Twelve independently playable wonder engines: parcel deduction, escape locks, matching pairs, errand ordering, lantern circuits, authored riddles, Caesar messages, weighted token balances, lantern memory, number patterns, odd-symbol observation and maze navigation. Every engine has four complexity levels, instructions, hints, retry and persistent attempts.
 - Original 6,000 planning scenarios remain playable. Their feasible practice solutions earn universe rewards once, including earlier saved solutions.
 - Backpack: material counts, earned coins, object descriptions, favourite pins, egg hatching and charm consumption.
 - Eight crafting recipes with material and coin costs, balance checks and useful outputs.
@@ -17,11 +17,14 @@ SIDE QUEST now connects its original community-planning practice puzzles to a pe
 - Secret phrase and rune door, thirty postcard setting destinations, a branching letter story with persistent choices and replay without duplicate rewards.
 - Sixteen earned achievement stamps, XP, level progression, statistics from actual local progress, a three-stage puzzle boss, crown trophy and new atlas chapters after twelve new completions per chapter.
 - Region-pinned field notes, note search and a completed-quest archive.
+- Five optional challenge rules with applicability labels, three ready-made recipes and up to twelve saved personal recipes. Restart keeps the same puzzle and clears an exhausted move budget.
+- Personal atlas annotations with notes, percentage-based positioning, a visibility toggle and reversible archive.
+- A mystery board for people, places, objects and theories; named red-thread connections; resolved/reopen stamps; earned-postcard pinning; reversible archives; and a progress recap. These are personal fictional notes, not claims of automatically generated story consequences.
 - Browser database persistence, universe inclusion in notebook backup/import and private account sync. The universe is synced as one latest-modified snapshot so crafting and inventory transactions remain together. Simultaneous edits on different devices are not merged field by field; export a backup before switching devices.
 
 ## Verification
 
-`npm test` checks the original 6,000 unique planning scenarios and 4,800 generated wonder boards (six engines × four levels × 200 seeds), plus reward idempotency, resource conservation, state validation, persistence, NPC rewards, doors, stories and snapshot sync.
+`npm test` checks the original 6,000 unique planning scenarios and 9,600 generated wonder-board checks (twelve engines × four levels × 200 seeds; authored riddles repeat within difficulty bands), plus reward idempotency, resource conservation, state validation, persistence, NPC rewards, doors, stories and snapshot sync.
 
 `tests/universe-rls.sql` writes disposable universe snapshots inside a rolled-back transaction and verifies that a different user cannot read or overwrite them. No fixture users or worlds remain after the test.
 
@@ -32,21 +35,21 @@ The 900 supplied ideas are a product roadmap, not 900 released features. Setting
 | Brief group | Released coverage | Remaining work |
 | --- | --- | --- |
 | 1–30 Quest machine | Dials, tickets, serials, rarity, rerolls, skins | Fusion, upgrades, repair events, secret mechanisms |
-| 31–60 Quest types | Six new engines, branching story, original three planning engines | Remaining genre-specific mechanics |
+| 31–60 Quest types | Twelve wonder engines, branching story, original three planning engines | Remaining genre-specific mechanics |
 | 61–90 Strange worlds | All thirty as fictional ticket settings | Dedicated world-specific maps and story campaigns |
 | 91–120 NPCs | Four residents, memory, dialogue, errands and keepsakes | Relationships, schedules, factions, voice and multi-quest arcs |
 | 121–150 Secrets | Phrase/rune door and collection-based routes | Calendar, audio, weather and meta-puzzle discoveries |
-| 151–180 Modifiers | Hints, retry, four complexity levels, site accessibility | Modifier recipes and the remaining mechanical variants |
+| 151–180 Modifiers | No hints, one-check attempts, move budgets, mirror boards, maze fog and saved recipes | Remaining mechanical variants |
 | 181–210 Difficulty | Four explicit levels, practice, hints, low-pressure play | Adaptive balancing and advanced challenge modes |
 | 211–240 Profiles | Persona, title, class, preferences, history and XP | Public showcases, friend/rival activity and soundtracks |
 | 241–270 Collectibles | Materials, coins, lore, eggs, relics, trophy and keepsakes | Seasonal collections, tapes as audio and remaining item families |
 | 271–300 Creatures | Eight species, hatching, affection, feeding, naming, bonds, habitats | Breeding, fusion, jobs, expeditions and creature mini-games |
 | 301–330 Inventory | Counts, inspect, pins, crafting consumption and use | Trading, gifting, quick wheel and advanced item rules |
 | 331–360 Crafting | Eight recipes, costs, material checks and outputs | Stations, collaborative work, enchanting and crafting mini-games |
-| 361–390 Atlas | Eight districts, gates, stamps, paths, motion and day/night | Custom map markers, transport and weather systems |
+| 361–390 Atlas | Eight districts, gates, stamps, paths, motion, personal markers and day/night | Transport and weather systems |
 | 391–420 Evolution | Town milestones, bridge repair, unlocks and chapters | Full environmental simulation and reactive ecosystems |
 | 421–450 Home | Six placements, furniture crafting, room themes and lighting | More room types, visitors, ambient music and house quests |
-| 451–480 Journal | Manual notes, region pins, search and completion archive | Red-string boards, screenshots, advanced lore archives |
+| 451–480 Journal | Manual notes, region pins, search, red-string clue board, quest recap and completion archive | Screenshots and advanced lore archives |
 | 481–510 Social play | Existing organisation-reviewed community plans | Friend, party, spectator and real-time play infrastructure |
 | 511–540 Creation | Existing local scenario editor and organisation publishing | World/story/NPC editors, moderation and creator analytics |
 | 541–570 Stories | Persistent branching letter, replay and endings | Episodic campaigns and timeline systems |

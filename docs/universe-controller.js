@@ -1,4 +1,11 @@
 import {
+  circuitPress,
+  moveBudget,
+  normaliseMods,
+  MODIFIERS,
+} from "./expeditions.js?v=10";
+import { fieldworkActions } from "./expeditions-controller.js?v=10";
+import {
   REGIONS,
   REALMS,
   CREATURES,
@@ -16,7 +23,7 @@ import {
   mazeMove,
   regionOpen,
   validTicket,
-} from "./universe.js?v=9";
+} from "./universe.js?v=10";
 const e = (x) =>
   String(x ?? "").replace(
     /[&<>"']/g,
@@ -39,24 +46,53 @@ export function connectUniverse(ctx) {
     location.hash = hash;
   };
   function attempt(ticket, boss = false) {
+    const p = makePuzzle(ticket);
+    let answer = "";
+    if (p.type === "balance") answer = p.values.map(() => 0);
+    if (["memory", "pairs"].includes(p.type)) answer = [];
+    if (p.type === "locks") answer = p.digits.map(() => 0);
+    if (p.type === "sequence") answer = [...p.initial];
+    if (p.type === "circuit") answer = [...p.cells];
     return {
-      ticket,
-      answer:
-        ticket.type === "balance"
-          ? makePuzzle(ticket).values.map(() => 0)
-          : ticket.type === "memory"
-            ? []
-            : "",
+      ticket: { ...ticket, mods: normaliseMods(ticket.mods) },
+      answer,
+      pairOpen: [],
       phase: "preview",
       position: 0,
       round: 0,
       boss,
       mistakes: 0,
+      moves: 0,
+      failed: false,
       hinted: false,
       hint: "",
       feedback: "",
       started: Date.now(),
     };
+  }
+  function requireAttempt(a) {
+    if (!a) throw Error("Choose a ticket first.");
+    if (a.failed)
+      throw Error("Start a fresh attempt to try this puzzle again.");
+    if (a.finished)
+      throw Error(
+        "This discovery is already in your notebook. Print a new ticket for another.",
+      );
+  }
+  function usedMove(s) {
+    const a = s.active,
+      p = makePuzzle(a.ticket, a.round || 0);
+    a.moves = (a.moves || 0) + 1;
+    const limit = a.ticket.mods?.limitedMoves ? moveBudget(p) : 0;
+    if (
+      limit &&
+      a.moves >= limit &&
+      !checkPuzzle(p, p.type === "maze" ? a.position : a.answer)
+    ) {
+      a.failed = true;
+      a.feedback =
+        "The pocket is out of moves. The same puzzle is waiting whenever you want to restart.";
+    }
   }
   async function begin(ticket, boss = false) {
     if (!validTicket(ticket) || ticket.type === "community")
@@ -69,7 +105,12 @@ export function connectUniverse(ctx) {
   }
   function readAnswer(a, p) {
     if (p.type === "maze") return a.position || 0;
-    if (p.type === "memory") return a.answer || [];
+    if (["memory", "pairs", "sequence", "circuit"].includes(p.type))
+      return a.answer || [];
+    if (p.type === "locks")
+      return [...document.querySelectorAll("[data-u-dial]")].map(
+        (el) => +el.value,
+      );
     if (p.type === "balance")
       return [...document.querySelectorAll("[data-u-weight]")].map(
         (el) => +el.value,
@@ -80,12 +121,13 @@ export function connectUniverse(ctx) {
   async function check() {
     const s = structuredClone(ctx.getState()),
       a = s.active;
-    if (!a) return;
+    requireAttempt(a);
     const p = makePuzzle(a.ticket, a.round || 0);
     const answer = readAnswer(a, p);
     a.answer = answer;
     if (!checkPuzzle(p, answer)) {
       a.mistakes++;
+      if (a.ticket.mods?.oneTry) a.failed = true;
       a.feedback =
         p.type === "balance"
           ? "The scale is not balanced yet. Try another combination."
@@ -144,6 +186,7 @@ export function connectUniverse(ctx) {
     );
   }
   const actions = {
+    ...fieldworkActions(ctx, { send, store, go, machineSettings }),
     go: async (b) => go(b.dataset.id),
     "persona-save": async () => {
       await send("persona", {
@@ -374,7 +417,87 @@ export function connectUniverse(ctx) {
         a = s.active;
       if (!a) return;
       const p = makePuzzle(a.ticket, a.round || 0);
-      a.position = mazeMove(p, a.position || 0, b.dataset.id);
+      requireAttempt(a);
+      const direction = a.ticket.mods?.mirror
+        ? { left: "right", right: "left" }[b.dataset.id] || b.dataset.id
+        : b.dataset.id;
+      const previous = a.position || 0;
+      a.position = mazeMove(p, previous, direction);
+      if (a.position !== previous) usedMove(s);
+      s.updated = Date.now();
+      await store(s);
+    },
+    "pairs-ready": async () => {
+      const s = structuredClone(ctx.getState());
+      requireAttempt(s.active);
+      s.active.phase = "recall";
+      s.active.answer = [];
+      s.active.pairOpen = [];
+      s.updated = Date.now();
+      await store(s);
+    },
+    pair: async (b) => {
+      const s = structuredClone(ctx.getState()),
+        a = s.active;
+      requireAttempt(a);
+      if (a.phase !== "recall") return;
+      const p = makePuzzle(a.ticket, a.round || 0),
+        index = +b.dataset.id;
+      if (
+        !Number.isInteger(index) ||
+        index < 0 ||
+        index >= p.cells.length ||
+        a.answer.includes(index) ||
+        (a.pairOpen || []).includes(index) ||
+        (a.pairOpen || []).length >= 2
+      )
+        return;
+      a.pairOpen = [...(a.pairOpen || []), index];
+      if (
+        a.pairOpen.length === 2 &&
+        p.cells[a.pairOpen[0]] === p.cells[a.pairOpen[1]]
+      ) {
+        a.answer.push(...a.pairOpen);
+        a.pairOpen = [];
+      }
+      usedMove(s);
+      s.updated = Date.now();
+      await store(s);
+      if (checkPuzzle(p, a.answer)) await check();
+    },
+    "pair-clear": async () => {
+      const s = structuredClone(ctx.getState());
+      requireAttempt(s.active);
+      s.active.pairOpen = [];
+      s.updated = Date.now();
+      await store(s);
+    },
+    circuit: async (b) => {
+      const s = structuredClone(ctx.getState()),
+        a = s.active;
+      requireAttempt(a);
+      const p = makePuzzle(a.ticket, a.round || 0);
+      a.answer = circuitPress(a.answer, p.size, +b.dataset.id);
+      usedMove(s);
+      s.updated = Date.now();
+      await store(s);
+      if (checkPuzzle(p, a.answer)) await check();
+    },
+    sort: async (b) => {
+      const s = structuredClone(ctx.getState()),
+        a = s.active;
+      requireAttempt(a);
+      const [index, delta] = b.dataset.id.split("|").map(Number),
+        j = index + delta;
+      if (
+        !Number.isInteger(index) ||
+        ![-1, 1].includes(delta) ||
+        j < 0 ||
+        j >= a.answer.length
+      )
+        return;
+      [a.answer[index], a.answer[j]] = [a.answer[j], a.answer[index]];
+      usedMove(s);
       s.updated = Date.now();
       await store(s);
     },
@@ -395,6 +518,11 @@ export function connectUniverse(ctx) {
       const s = structuredClone(ctx.getState()),
         a = s.active;
       if (!a) return;
+      requireAttempt(a);
+      if (a.ticket.mods?.noHints)
+        throw Error(
+          "This ticket uses the no-hints recipe. Restart or print another ticket to change the rules.",
+        );
       const p = makePuzzle(a.ticket, a.round || 0);
       const hints = {
         cipher: `Read the alphabet backwards by ${p.shift} positions. The first decoded letter is ${p.answer?.[0]}.`,
@@ -405,7 +533,20 @@ export function connectUniverse(ctx) {
         observe: `The different symbol is in row ${Math.floor((p.index || 0) / 4) + 1}.`,
         maze: "The top edge and the right edge form a guaranteed route. Interior passages may be shorter.",
       };
-      a.hint = hints[p.type];
+      const extra = {
+        detective: `The clerk’s notes all describe ${p.people?.[p.answer]?.name}. Compare that visitor’s row against each note.`,
+        locks: `One working code is ${p.digits?.join(" · ")}. Check the relationship between each wheel.`,
+        pairs:
+          "Use the drawer positions as landmarks. Clear an incorrect pair before trying two new drawers.",
+        sequence: p.order
+          ? `One correct order is ${p.order.map((id) => p.labels[id]).join(" → ")}.`
+          : "",
+        circuit: p.solution
+          ? `From a clean page, press lanterns ${p.solution.map((i) => i + 1).join(", ")} once each. The order does not matter.`
+          : "",
+        riddle: p.hint,
+      };
+      a.hint = hints[p.type] || extra[p.type];
       a.hinted = true;
       s.updated = Date.now();
       await store(s);
@@ -419,7 +560,19 @@ export function connectUniverse(ctx) {
     await send("persona", p, false);
     await send(
       "machine",
-      { type: $("#u-machine-type").value, realm: +$("#u-machine-realm").value },
+      {
+        type: $("#u-machine-type").value,
+        realm: +$("#u-machine-realm").value,
+        mods:
+          $("#u-machine-type").value === "community"
+            ? normaliseMods()
+            : Object.fromEntries(
+                [...document.querySelectorAll("[data-u-mod]")].map((el) => [
+                  el.dataset.uMod,
+                  el.checked,
+                ]),
+              ),
+      },
       false,
     );
   }
@@ -440,6 +593,10 @@ export function connectUniverse(ctx) {
       busy = false;
     }
   });
+  document.addEventListener("change", (event) => {
+    if (event.target.id === "u-machine-type" && $("#u-modifiers"))
+      $("#u-modifiers").disabled = event.target.value === "community";
+  });
   document.addEventListener("input", (event) => {
     const el = event.target;
     if (el.id === "u-note-search") {
@@ -449,10 +606,19 @@ export function connectUniverse(ctx) {
         .forEach((n) => (n.hidden = !n.dataset.noteText.includes(q)));
       return;
     }
-    if (el.id === "u-answer" || el.dataset.uWeight !== undefined) {
+    if (
+      el.id === "u-answer" ||
+      el.dataset.uWeight !== undefined ||
+      el.dataset.uDial !== undefined
+    ) {
       const s = structuredClone(ctx.getState());
-      if (!s.active) return;
-      if (el.id === "u-answer") s.active.answer = el.value;
+      if (!s.active || s.active.failed) return;
+      if (el.dataset.uDial !== undefined) {
+        s.active.answer = Array.isArray(s.active.answer)
+          ? s.active.answer
+          : makePuzzle(s.active.ticket).digits.map(() => 0);
+        s.active.answer[+el.dataset.uDial] = +el.value;
+      } else if (el.id === "u-answer") s.active.answer = el.value;
       else {
         const p = makePuzzle(s.active.ticket, s.active.round || 0);
         s.active.answer = Array.isArray(s.active.answer)

@@ -1,10 +1,13 @@
-const CACHE = "side-quest-v9";
+const CACHE = "side-quest-v10";
 const FILES = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
   "./universe.js",
+  "./expeditions.js",
+  "./expeditions-ui.js",
+  "./expeditions-controller.js",
   "./universe-ui.js",
   "./universe-controller.js",
   "./universe.css",

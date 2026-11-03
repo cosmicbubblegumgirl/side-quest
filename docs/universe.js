@@ -1,3 +1,13 @@
+import {
+  EXTRA_TYPES,
+  EXTRA_NAMES,
+  extraPuzzle,
+  checkExtra,
+  normaliseMods,
+  initialFieldwork,
+  normaliseFieldwork,
+  fieldworkAction,
+} from "./expeditions.js?v=10";
 /* SIDE QUEST's persistent world rules. No network or view dependencies. */
 export const REGIONS = [
   {
@@ -160,8 +170,10 @@ export const MINI_TYPES = [
   "pattern",
   "observe",
   "maze",
+  ...EXTRA_TYPES,
 ];
 export const MINI_NAMES = {
+  ...EXTRA_NAMES,
   cipher: "The misplaced message",
   balance: "The merchant’s scales",
   memory: "Lantern recollection",
@@ -495,8 +507,10 @@ export function initialUniverse(seed = Date.now()) {
       rerolls: 3,
       ticket: null,
       type: "any",
+      mods: normaliseMods(),
       realm: 0,
     },
+    fieldwork: initialFieldwork(),
     secret: false,
     night: false,
     active: null,
@@ -618,6 +632,8 @@ export function normaliseUniverse(input) {
     type: ["any", "community", ...MINI_TYPES].includes(m.type) ? m.type : "any",
     realm: Math.floor(finite(m.realm, 0, 0, 29)),
   };
+  d.fieldwork = normaliseFieldwork(input.fieldwork);
+  d.machine.mods = normaliseMods(m.mods);
   d.secret = !!input.secret;
   d.night = !!input.night;
   d.story = {
@@ -645,17 +661,40 @@ export function normaliseUniverse(input) {
           : makePuzzle(a.ticket, a.round || 0);
     if (puzzle) {
       let answer = "";
-      if (["balance", "memory"].includes(puzzle.type))
+      if (
+        ["balance", "memory", "locks", "pairs", "sequence", "circuit"].includes(
+          puzzle.type,
+        )
+      )
         answer = (Array.isArray(a.answer) ? a.answer : [])
           .slice(0, 30)
           .map((x) =>
-            Math.floor(finite(x, 0, 0, puzzle.type === "memory" ? 3 : 9)),
+            Math.floor(
+              finite(
+                x,
+                0,
+                0,
+                puzzle.type === "memory"
+                  ? 3
+                  : ["pairs", "sequence"].includes(puzzle.type)
+                    ? 30
+                    : 9,
+              ),
+            ),
           );
       else if (puzzle.type === "observe")
         answer = Math.floor(finite(a.answer, 0, 0, 40));
       else answer = safeText(String(a.answer ?? ""), 80);
       d.active = {
-        ticket: clone(a.ticket),
+        ticket: { ...clone(a.ticket), mods: normaliseMods(a.ticket.mods) },
+        pairOpen: (Array.isArray(a.pairOpen) ? a.pairOpen : [])
+          .filter(
+            (x) =>
+              Number.isInteger(x) && x >= 0 && x < (puzzle.cells?.length || 0),
+          )
+          .slice(0, 2),
+        moves: Math.floor(finite(a.moves)),
+        failed: !!a.failed,
         answer,
         phase: a.phase === "recall" ? "recall" : "preview",
         position: Math.floor(
@@ -715,9 +754,9 @@ export function validTicket(t) {
     t.level <= 3 &&
     REGIONS.some((r) => r.id === t.region) &&
     typeof t.id === "string" &&
-    /^(cipher|balance|memory|pattern|observe|maze|community)-[0-3]-[0-9]+$/.test(
-      t.id,
-    ) &&
+    new RegExp(
+      "^(" + [...MINI_TYPES, "community"].join("|") + ")-[0-3]-[0-9]+$",
+    ).test(t.id) &&
     Number.isInteger(t.realm) &&
     t.realm >= 0 &&
     t.realm < 30 &&
@@ -733,10 +772,10 @@ export function ticketFor(s, { type, region, seed, level } = {}) {
   const selectedRegion = region || open[Math.floor(r() * open.length)].id;
   const moodTypes = {
     Cozy: ["balance", "observe"],
-    Curious: ["cipher", "pattern"],
-    Mysterious: ["cipher", "maze"],
-    Electric: ["pattern", "memory"],
-    Dreamy: ["memory", "observe"],
+    Curious: ["cipher", "pattern", "detective", "sequence"],
+    Mysterious: ["cipher", "maze", "locks", "riddle"],
+    Electric: ["pattern", "memory", "circuit"],
+    Dreamy: ["memory", "observe", "pairs"],
     Ridiculous: ["balance", "cipher"],
   };
   let candidates =
@@ -761,6 +800,7 @@ export function ticketFor(s, { type, region, seed, level } = {}) {
     kind,
     level: lev,
     region: selectedRegion,
+    mods: normaliseMods(s.machine.mods),
     rarity:
       rare < 3
         ? "Legendary"
@@ -898,6 +938,23 @@ export function achievements(s) {
 export function transition(state, action, now = Date.now()) {
   const s = clone(state);
   const p = action.payload || {};
+  if (
+    [
+      "map-pin",
+      "pin-archive",
+      "pin-layer",
+      "clue-add",
+      "clue-solved",
+      "clue-archive",
+      "clue-link",
+      "link-archive",
+      "recipe-save",
+      "recipe-remove",
+    ].includes(action.type)
+  ) {
+    s.fieldwork = fieldworkAction(s.fieldwork, action, now);
+    return touch(s, now);
+  }
   switch (action.type) {
     case "persona":
       s.persona = normaliseUniverse({
@@ -911,6 +968,14 @@ export function transition(state, action, now = Date.now()) {
       s.visits[p.id] = now;
       break;
     }
+    case "recipe-apply": {
+      const recipe = s.fieldwork.recipes.find((r) => r.id === p.id);
+      if (!recipe) throw Error("That recipe is not in this wallet.");
+      s.persona.level = recipe.level;
+      s.machine.type = recipe.type;
+      s.machine.mods = normaliseMods(recipe.mods);
+      break;
+    }
     case "night":
       s.night = !s.night;
       break;
@@ -918,6 +983,7 @@ export function transition(state, action, now = Date.now()) {
       if (!["any", "community", ...MINI_TYPES].includes(p.type))
         throw Error("Choose a quest kind.");
       s.machine.type = p.type;
+      s.machine.mods = normaliseMods(p.mods);
       s.machine.realm = Math.floor(finite(+p.realm, 0, 0, 29));
       break;
     }
@@ -1194,6 +1260,7 @@ export function makePuzzle(ticket, round = 0) {
     r = rng(ticket.seed + "/" + round),
     pick = (n) => Math.floor(r() * n),
     type = ticket.type;
+  if (EXTRA_TYPES.includes(type)) return extraPuzzle(ticket, r);
   if (type === "cipher") {
     const words = [
       "LANTERN",
@@ -1271,6 +1338,7 @@ export function makePuzzle(ticket, round = 0) {
   return { type, size, walls, start: 0, end: size * size - 1 };
 }
 export function checkPuzzle(puzzle, answer) {
+  if (EXTRA_TYPES.includes(puzzle.type)) return checkExtra(puzzle, answer);
   if (puzzle.type === "cipher")
     return String(answer).trim().toUpperCase() === puzzle.answer;
   if (puzzle.type === "balance")

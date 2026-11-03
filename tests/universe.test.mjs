@@ -35,7 +35,14 @@ function win(s, id, type = "cipher") {
 test("all six new engines generate deterministic solvable puzzles at every difficulty", () => {
   let tested = 0;
   const s = initialUniverse(100);
-  for (const type of MINI_TYPES)
+  for (const type of [
+    "cipher",
+    "balance",
+    "memory",
+    "pattern",
+    "observe",
+    "maze",
+  ])
     for (let level = 0; level < 4; level++)
       for (let seed = 1; seed <= 200; seed++) {
         const t = ticketFor(s, { type, level, seed });

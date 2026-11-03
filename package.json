@@ -5,6 +5,6 @@
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check docs/app.js && node --check docs/engine.js && node --check docs/cloud.js && node --check docs/kit.js && node --check docs/universe.js && node --check docs/universe-ui.js && node --check docs/universe-controller.js"
+    "check": "node --check docs/app.js && node --check docs/engine.js && node --check docs/cloud.js && node --check docs/kit.js && node --check docs/universe.js && node --check docs/universe-ui.js && node --check docs/universe-controller.js && node --check docs/expeditions.js && node --check docs/expeditions-ui.js && node --check docs/expeditions-controller.js"
   }
 }

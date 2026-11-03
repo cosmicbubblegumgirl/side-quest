@@ -2315,3 +2315,689 @@ body[data-theme="contrast"] .u-subpage p {
     top: 45px;
   }
 }
+/* Case files, marginalia and a few new reasons to take a detour. */
+.x-modifiers {
+  border: 1px solid #a9b49788;
+  text-align: left;
+  padding: 18px;
+  margin-top: 20px;
+}
+.x-modifiers legend {
+  font: 15px Georgia;
+  padding: 0 8px;
+}
+.x-modifiers > p {
+  font-size: 10px;
+  color: #d7dfca;
+  margin-top: 0;
+}
+.x-modifiers label {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  margin: 12px 0;
+  font-size: 11px;
+}
+.x-modifiers input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: #d3b373;
+}
+.x-modifiers label b {
+  font-weight: 400;
+}
+.x-modifiers label small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0.2px;
+  margin-top: 4px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+.x-modifiers:disabled {
+  opacity: 0.35;
+}
+.x-machine-extras {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-size: 10px;
+  padding-top: 20px;
+}
+.x-machine-extras .u-button {
+  font-size: 10px;
+}
+.x-active-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+.x-active-rules span,
+.x-active-rules b {
+  font: 8px monospace;
+  letter-spacing: 0.3px;
+  border: 1px solid #a8b391;
+  padding: 6px 8px;
+  background: #e8e7cd;
+  font-weight: 400;
+}
+.x-failed {
+  background: #ead9bb;
+  border-left: 3px solid #a27b50;
+  font: 17px/1.5 Georgia;
+  padding: 15px;
+  margin-bottom: 25px;
+}
+.x-plain-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.x-plain-fieldset:disabled {
+  opacity: 0.5;
+}
+.x-clues {
+  border-top: 1px solid #a8b295;
+  border-bottom: 1px solid #a8b295;
+  padding: 12px 0;
+  margin: 25px 0;
+}
+.x-clues p {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+.x-clues b {
+  font: 9px monospace;
+  color: #9c8159;
+  margin-right: 8px;
+}
+.x-suspects {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+.x-suspects th {
+  font: 8px monospace;
+  text-align: left;
+  letter-spacing: 0.8px;
+  background: #d8dec4;
+}
+.x-suspects th,
+.x-suspects td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #b8c1a4;
+}
+.x-suspects td:first-child {
+  font: 18px Georgia;
+}
+.x-lock-art {
+  border-radius: 60px 60px 0 0;
+  background: #2c4547;
+  color: #d8bd8e;
+  text-align: center;
+  padding: 35px 20px;
+  font: 45px Georgia;
+  margin: 25px auto;
+  max-width: 360px;
+}
+.x-lock-art span {
+  display: block;
+  font: 7px monospace;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+.x-dials {
+  display: flex;
+  gap: 15px;
+  max-width: 400px;
+  margin: 25px auto;
+}
+.x-dials label {
+  flex: 1;
+}
+.x-dials input {
+  font: 35px Georgia;
+  text-align: center;
+  padding: 12px 3px;
+}
+.x-pairs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 30px 0;
+}
+.x-pairs button {
+  aspect-ratio: 1;
+  background: #3b5352;
+  color: #ebd7ad;
+  border: 2px solid #8ea18a;
+  font: 42px Georgia;
+  min-width: 0;
+  border-radius: 3px;
+}
+.x-pairs button:disabled {
+  opacity: 1;
+  cursor: default;
+}
+.x-pairs button.matched {
+  background: #d1dbbb;
+  color: #4d6e53;
+  border-color: #94aa7d;
+}
+.x-pair-status {
+  font: 10px monospace;
+  margin: 20px 0;
+  color: #7d8b6b;
+}
+.x-order {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 25px 0;
+}
+.x-order li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px;
+  background: #e6deca;
+  border-left: 3px solid #9c9272;
+}
+.x-order li > span {
+  font: 19px Georgia;
+  line-height: 1.3;
+}
+.x-order small {
+  display: inline-block;
+  margin-right: 15px;
+  color: #9b7d52;
+  font-size: 8px;
+}
+.x-order li > div {
+  display: flex;
+  gap: 5px;
+}
+.x-order .u-button {
+  font-size: 20px;
+  padding: 5px 11px;
+}
+.x-clue-fold {
+  padding: 20px;
+  border: 1px solid #a9b195;
+  font-size: 11px;
+  background: #eef0dc;
+}
+.x-clue-fold summary {
+  font: 18px Georgia;
+  cursor: pointer;
+}
+.x-circuit {
+  display: grid;
+  grid-template-columns: repeat(var(--size), 1fr);
+  gap: 9px;
+  max-width: 400px;
+  margin: 30px auto;
+  background: #294347;
+  padding: 15px;
+  border: 8px solid #a49b7d;
+  border-radius: 6px;
+}
+.x-circuit button {
+  aspect-ratio: 1;
+  border: 1px solid #6c8275;
+  background: #21383f;
+  color: #7a8f80;
+  font: 40px Georgia;
+  border-radius: 50%;
+  padding: 0;
+  min-width: 0;
+}
+.x-circuit button.lit {
+  background: #e0be7d;
+  color: #faf0ce;
+  box-shadow: 0 0 15px #e4bb6c55;
+}
+.x-circuit-status {
+  font: 10px monospace;
+  text-align: center;
+  color: #79866a;
+}
+.x-mirror {
+  transform: scaleX(-1);
+}
+.x-mirror > button > span {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+.u-maze.x-mirror > span {
+  transform: scaleX(-1);
+}
+.u-maze > span.x-fog {
+  background: #233e43;
+  box-shadow: none;
+  color: transparent;
+}
+.x-riddle-door {
+  font: 90px Georgia;
+  text-align: center;
+  color: #a18c65;
+}
+.x-riddle {
+  font: 30px/1.45 Georgia;
+  margin: 20px 0 35px;
+  border-left: 2px solid #9b8f6f;
+  padding-left: 20px;
+}
+.x-map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: none;
+  color: #e5c17d;
+  z-index: 5;
+  max-width: 140px;
+  text-align: center;
+  padding: 0;
+}
+.x-map-pin > span {
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid #f2ce84;
+  background: #b6824e;
+  width: 24px;
+  height: 24px;
+  font: 10px monospace;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #d3bc7a22;
+}
+.x-map-pin small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0.2px;
+  margin-top: 5px;
+  background: #192f38e0;
+  padding: 4px 6px;
+  color: #f4dcb6;
+  overflow-wrap: anywhere;
+}
+.x-map-tools {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.x-map-tools > a {
+  font: 8px monospace;
+  text-decoration: underline !important;
+}
+.x-page-intro {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  border-top: 1px solid #acb699;
+  border-bottom: 1px solid #acb699;
+  padding: 20px 0;
+  margin-bottom: 25px;
+}
+.x-page-intro > span {
+  font: 60px Georgia;
+  color: #9b8561;
+}
+.x-page-intro h2 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+.x-page-intro p {
+  font-size: 12px;
+  max-width: 620px;
+  color: #728168;
+}
+.x-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+.x-pin-ledger > article {
+  padding: 22px 0;
+  border-bottom: 1px solid #aeb69b;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.x-pin-ledger > article h3 {
+  font-size: 26px;
+  margin: 10px 0;
+}
+.x-pin-ledger > article p {
+  font-size: 12px;
+  white-space: pre-wrap;
+  color: #6b7d68;
+}
+.x-pin-ledger > article small {
+  font-size: 7px;
+}
+.x-pin-ledger > article > div:last-child {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.put-away {
+  opacity: 0.5;
+}
+.x-empty-note {
+  font: 22px Georgia;
+  padding: 40px;
+  border: 1px dashed #9fae8f;
+  text-align: center;
+}
+.x-caseboard {
+  background: repeating-linear-gradient(
+    0deg,
+    #243d42,
+    #243d42 24px,
+    #2c4548 25px
+  );
+  height: var(--board-height);
+  position: relative;
+  border: 9px solid #91856b;
+  isolation: isolate;
+}
+.x-caseboard > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  z-index: -1;
+}
+.x-caseboard > svg path {
+  stroke: #bb7c6b;
+  stroke-width: 2;
+  opacity: 0.9;
+}
+.x-evidence {
+  position: absolute;
+  left: calc(var(--col) * 33.333% + 2%);
+  top: calc(var(--row) * 250px + 20px);
+  width: 29.333%;
+  height: 210px;
+  background: #f1e6cd;
+  padding: 22px 16px 12px;
+  box-shadow: 3px 4px #112a2e88;
+  border: 1px solid #bdaf8e;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.x-evidence.resolved {
+  background: #dbe4ca;
+}
+.x-tack {
+  position: absolute;
+  left: calc(50% - 5px);
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b77c5c;
+  box-shadow: 1px 2px #233e3c33;
+}
+.x-evidence small {
+  font-size: 6px;
+  letter-spacing: 0.7px;
+  color: #879071;
+}
+.x-evidence h3 {
+  font-size: 23px;
+  line-height: 1.1;
+  margin: 10px 0;
+}
+.x-evidence p {
+  font: 14px/1.55 Georgia;
+  white-space: pre-wrap;
+  max-height: 70px;
+  overflow: auto;
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+.x-evidence > div {
+  display: flex;
+  gap: 6px;
+}
+.x-evidence .u-button {
+  font-size: 8px;
+  padding: 6px;
+}
+.x-case-empty {
+  padding: 50px 25px;
+  border: 1px dashed #a7b394;
+  text-align: center;
+  font: 60px Georgia;
+  color: #9c8865;
+}
+.x-case-empty h2 {
+  font-size: 37px;
+  color: #3a5549;
+  margin: 20px 0;
+}
+.x-case-empty p {
+  font-size: 13px;
+  color: #738169;
+}
+.x-connections {
+  margin-top: 35px;
+}
+.x-connections h2 {
+  font-size: 30px;
+}
+.x-connections article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #aeb69b;
+  padding: 12px 0;
+}
+.x-connections p {
+  font-size: 12px;
+  color: #687b62;
+}
+.x-connections b {
+  color: #354f43;
+  font-weight: 500;
+}
+.x-archive {
+  margin-top: 25px;
+  border: 1px solid #b0b69c;
+  padding: 20px;
+  font-size: 12px;
+}
+.x-archive > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  gap: 15px;
+}
+.x-recipe-letter {
+  background: #f7eedb;
+  border: 1px solid #bcaf8c;
+  padding: 35px;
+  max-width: 850px;
+}
+.x-recipe-letter > span {
+  font: 8px monospace;
+  letter-spacing: 1px;
+  color: #927651;
+}
+.x-recipe-letter h2 {
+  font-size: 40px;
+  margin: 20px 0;
+}
+.x-recipe-letter p {
+  font-size: 12px;
+  max-width: 620px;
+}
+.x-saved-recipes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin: 35px 0;
+}
+.x-saved-recipes article {
+  padding: 25px 20px;
+  border-top: 1px solid #a9b394;
+  background: #f7eedb;
+}
+.x-saved-recipes article small {
+  font-size: 7px;
+}
+.x-saved-recipes article h3 {
+  font-size: 29px;
+  margin: 15px 0;
+}
+.x-saved-recipes article p {
+  font-size: 11px;
+  color: #748269;
+  min-height: 40px;
+}
+@media (max-width: 760px) {
+  .x-modifiers {
+    padding: 15px;
+  }
+  .x-modifiers label small {
+    font-size: 8px;
+  }
+  .x-map-tools {
+    gap: 10px;
+  }
+  .x-map-tools > a {
+    font-size: 6px;
+  }
+  .x-suspects th,
+  .x-suspects td {
+    padding: 10px 7px;
+  }
+  .x-suspects th {
+    font-size: 7px;
+  }
+  .x-suspects td {
+    font-size: 11px;
+  }
+  .x-suspects td:first-child {
+    font-size: 17px;
+  }
+  .x-dials {
+    gap: 10px;
+  }
+  .x-dials input {
+    font-size: 30px;
+  }
+  .x-lock-art {
+    padding: 25px 15px;
+  }
+  .x-pairs {
+    gap: 7px;
+  }
+  .x-pairs button {
+    font-size: 34px;
+  }
+  .x-order li {
+    padding: 10px;
+    gap: 10px;
+  }
+  .x-order li > span {
+    font-size: 17px;
+  }
+  .x-order small {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .x-order .u-button {
+    padding: 6px 10px;
+  }
+  .x-riddle {
+    font-size: 25px;
+  }
+  .x-page-intro {
+    gap: 20px;
+  }
+  .x-page-intro > span {
+    font-size: 42px;
+  }
+  .x-page-intro h2 {
+    font-size: 29px;
+  }
+  .x-tools .u-button {
+    font-size: 10px;
+    padding: 11px 13px;
+  }
+  .x-pin-ledger > article {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .x-caseboard {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-width: 6px;
+  }
+  .x-caseboard > svg {
+    display: none;
+  }
+  .x-evidence {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    min-height: 180px;
+  }
+  .x-evidence p {
+    max-height: 180px;
+    font-size: 16px;
+  }
+  .x-evidence small {
+    font-size: 7px;
+  }
+  .x-evidence h3 {
+    font-size: 27px;
+  }
+  .x-evidence .u-button {
+    font-size: 10px;
+    padding: 8px;
+  }
+  .x-connections article {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .x-connections h2 {
+    font-size: 27px;
+  }
+  .x-recipe-letter {
+    padding: 25px;
+  }
+  .x-recipe-letter h2 {
+    font-size: 34px;
+  }
+  .x-saved-recipes {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .x-active-rules span,
+  .x-active-rules b {
+    font-size: 7px;
+  }
+}

@@ -3,9 +3,9 @@ import {
   mergeUniverse,
   reward as rewardUniverse,
   stats as universeStats,
-} from "./universe.js?v=9";
-import { universeHome, universePage, wonderPage } from "./universe-ui.js?v=9";
-import { connectUniverse } from "./universe-controller.js?v=9";
+} from "./universe.js?v=10";
+import { universeHome, universePage, wonderPage } from "./universe-ui.js?v=10";
+import { connectUniverse } from "./universe-controller.js?v=10";
 import {
   TYPES,
   LEVELS,
@@ -841,6 +841,29 @@ const KIT_ACTIONS = [
   "clear the table",
 ];
 const CORE_CAPS = [
+  ["universe/machine", "Parcel-deduction cases"],
+  ["universe/machine", "Arithmetic escape locks"],
+  ["universe/machine", "Matching-pair cabinets"],
+  ["universe/machine", "Constrained errand ordering"],
+  ["universe/machine", "Cross-toggle lantern circuits"],
+  ["universe/machine", "Authored door riddles"],
+  ["universe/machine", "No-hint challenge rule"],
+  ["universe/machine", "One-check challenge rule"],
+  ["universe/machine", "Finite move budgets"],
+  ["universe/machine", "Mirrored spatial boards"],
+  ["universe/machine", "Maze lantern fog"],
+  ["universe/recipes", "Save and apply custom challenge recipes"],
+  ["universe/recipes", "Three ready-made challenge presets"],
+  ["universe/cartography", "Custom atlas marker positions and notes"],
+  ["universe/cartography", "Hide and show personal atlas annotations"],
+  ["universe/cartography", "Archive and restore map markers"],
+  ["universe/casebook", "Typed personal clue cards"],
+  ["universe/casebook", "Red-string connections with written reasons"],
+  ["universe/casebook", "Resolve and reopen theories"],
+  ["universe/casebook", "Archive and restore clues and connections"],
+  ["universe/casebook", "Earned-postcard clue pinning"],
+  ["universe/casebook", "Progress and unfinished-quest recap"],
+
   ["home", "Eight discoverable atlas districts"],
   ["home", "Progression-locked routes"],
   ["home", "Persistent district visit stamps"],

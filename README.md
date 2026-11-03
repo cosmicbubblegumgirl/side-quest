@@ -4,7 +4,7 @@
 
 A connected puzzle universe and community planning game by Simoné Govender, Quantum Cupcake Creations.
 
-The universe expansion adds eight districts, a quest machine, six new puzzle engines, crafting, companions, resident stories and a customisable room. See [the release notes and 900-idea roadmap](UNIVERSE-RELEASE.md) for working systems and remaining work.
+The universe expansion adds eight districts, a quest machine, twelve wonder puzzle engines, custom challenge recipes, a red-string mystery board, atlas annotations, crafting, companions, resident stories and a customisable room. See [the release notes and 900-idea roadmap](UNIVERSE-RELEASE.md) for working systems and remaining work.
 
 [Play SIDE QUEST](https://cosmicbubblegumgirl.github.io/side-quest/)
 
